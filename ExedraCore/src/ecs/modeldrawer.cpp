@@ -4,7 +4,7 @@ namespace exedra {
 	namespace ecs {
 		void ModelDrawer::Draw() {
 
-			transform->ApplyShader();
+			transform.lock()->ApplyShader();
 			for (uint32_t i = 0; i < model->meshes.size(); i++) {
 				model->meshes[i].Draw();
 			}

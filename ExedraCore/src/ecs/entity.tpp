@@ -37,7 +37,7 @@ namespace exedra {
 			}
 
 			LOG_CORE_ERROR("Could not find Component \"{0}\"!", typeid(T).name());
-			return nullptr;
+			return {};
 		}
 	}
 }

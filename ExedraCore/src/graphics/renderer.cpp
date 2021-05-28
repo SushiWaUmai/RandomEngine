@@ -14,10 +14,12 @@ namespace exedra {
 		void Renderer::Init(GLFWwindow* _window) {
 
 			LOG_CORE_TRACE("Initializing Renderer...");
-			
-			glEnable(GL_CULL_FACE); 
+
+			glEnable(GL_CULL_FACE);
 			glEnable(GL_DEPTH_TEST);
-			
+			//glEnable(GL_BLEND);
+			//glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
 			cam.Init(60, 5, 1);
 			std::shared_ptr<gui::CameraWindow> camWindow = std::make_shared<gui::CameraWindow>();
 			camWindow->Init(cam);

@@ -72,6 +72,7 @@ namespace exedra {
 
 			glm::vec3 pos = { position.x, position.y, position.z };
 			ViewMatrix = glm::lookAt(pos, lookDirection + pos, { 0, 1, 0 });
+
 			ProjectionMatrix = glm::perspective(glm::radians(fov), screenRatio, nearClipPlane, farClipPlane);
 		}
 	}

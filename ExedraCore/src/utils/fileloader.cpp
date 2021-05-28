@@ -6,6 +6,7 @@
 #include "src/gui/transformwindow.h"
 #include "src/ecs/entity.h"
 #include "src/ecs/modeldrawer.h"
+#include "src/ecs/scene.h"
 
 namespace exedra {
 	namespace utils {
@@ -27,9 +28,9 @@ namespace exedra {
                     using namespace ecs;
 
                     std::shared_ptr<Model> loadedModel = std::make_shared<Model>(outPath);
-                    Entity e;
-                    e.AddComponent<Transform>();
-                    std::shared_ptr<ModelDrawer> drawer = e.AddComponent<ModelDrawer>();
+                    std::shared_ptr<Entity> e = Scene::current->CreateEntity();
+                    e->AddComponent<Transform>();
+                    std::shared_ptr<ModelDrawer> drawer = e->AddComponent<ModelDrawer>();
                     drawer->SetModel(loadedModel);
                     Window::current->GetRenderer().AddDrawer(drawer);
                 }

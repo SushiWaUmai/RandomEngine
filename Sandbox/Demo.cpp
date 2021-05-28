@@ -7,8 +7,8 @@
 void Demo::Init(int _width, int _height, const std::string& _title) {
 	Application::Init(_width, _height, _title);
 
-	//std::string projectPath = R"(F:\Coding\C++\Projects\Exedra)";
-	std::string projectPath = R"(C:\Users\eugen\Coding\C++\Projects\Exedra)";
+	std::string projectPath = R"(F:\Coding\C++\Projects\Exedra)";
+	//std::string projectPath = R"(C:\Users\eugen\Coding\C++\Projects\Exedra)";
 
 	std::string vertPath = projectPath + R"(\exedraCore\assets\default\shaders\default_vert.glsl)";
 	std::string fragPath = projectPath + R"(\exedraCore\assets\default\shaders\default_frag.glsl)";
@@ -27,19 +27,25 @@ void Demo::Init(int _width, int _height, const std::string& _title) {
 		using namespace gui;
 		using namespace ecs;
 
-		Entity cubeEntity;
+		std::shared_ptr<Entity> cubeEntity = scene.CreateEntity();
 		std::string cubePath = projectPath + R"(\ExedraCore\assets\default\models\DefaultCube.fbx)";
 		std::shared_ptr<Model> cube = std::make_shared<Model>(cubePath);
-		std::shared_ptr<Transform> trasform = cubeEntity.AddComponent<Transform>();
-		std::shared_ptr<ModelDrawer> drawer = cubeEntity.AddComponent<ModelDrawer>();
+		std::shared_ptr<Transform> trasform = cubeEntity->AddComponent<Transform>();
+		std::shared_ptr<ModelDrawer> drawer = cubeEntity->AddComponent<ModelDrawer>();
 		drawer->SetModel(cube);
 		Window::current->GetRenderer().AddDrawer(drawer);
-		//cube->transform.Translate({ 0, 0, 5 });
+		cubeEntity->GetComponent<Transform>()->Translate({ 0, 0, 5 });
 
-		std::string whiteTexture = projectPath + R"(\ExedraCore\assets\default\textures\white_pixel.png)";
-		Texture tex(whiteTexture, aiTextureType_DIFFUSE);
-		tex.Bind();
+		//std::string whiteTexture = projectPath + R"(\ExedraCore\assets\default\textures\white_pixel.png)";
+		//Texture tex(whiteTexture, aiTextureType_DIFFUSE);
+		//tex.Bind();
 
+		//Window::current->GetRenderer().SetClearColor(1, 0, 0, 1);
+
+
+		std::string grassTexture = R"(D:\Downloads\grass.png)";
+		Texture grassTex(grassTexture, aiTextureType_DIFFUSE);
+		grassTex.Bind();
 	}
 }
 

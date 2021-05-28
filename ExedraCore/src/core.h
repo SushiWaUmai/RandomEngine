@@ -4,7 +4,7 @@
 	#ifdef RE_PLATFORM_WINDOWS
 		#ifdef RE_BUILD_DLL
 			#define RE_API __declspec(dllexport)
-		#else 
+		#else
 			#define RE_API __declspec(dllimport)
 		#endif
 	#else

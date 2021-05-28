@@ -11,7 +11,7 @@ namespace exedra {
 			virtual void Draw() = 0;
 			void Init() override;
 		protected:
-			std::shared_ptr<Transform> transform;
+			std::weak_ptr<Transform> transform;
 		};
 	}
 }

@@ -37,3 +37,4 @@
 #include "src/ecs/entity.h"
 #include "src/ecs/drawer.h"
 #include "src/ecs/modeldrawer.h"
+#include "src/ecs/scene.h"

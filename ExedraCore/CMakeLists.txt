@@ -75,8 +75,11 @@ set(SRC
     "src/ecs/component.h"
     "src/ecs/modeldrawer.cpp"
     "src/ecs/modeldrawer.h"
+    "src/ecs/drawer.cpp"
     "src/ecs/drawer.h"
-    "src/ecs/drawer.cpp")
+    "src/ecs/scene.cpp"
+    "src/ecs/scene.h"
+    )
 
 if(EXD_DYNAMIC_LINK)
     add_library(ExedraCore SHARED ${SRC})

@@ -11,10 +11,17 @@ in vec3 normal;
 
 void main()
 {
+
+    vec4 texCol = texture(albedoTexture, TexCoord);
+    float alpha = texCol.a;
+    if (alpha < 0.1)
+        discard;
+
     vec3 norm = normalize(normal);
     vec3 lightDir = -normalize(lightDirection);
     float lightIntensity = max(dot(norm, lightDir), 0.25f);
 
-    vec4 col = texture(albedoTexture, TexCoord) * vec4(objectColor, 1.0) * lightIntensity;
-    FragColor = col;
+    vec3 col = texCol.rgb * objectColor * lightIntensity;
+
+    FragColor = vec4(col, alpha);
 }
