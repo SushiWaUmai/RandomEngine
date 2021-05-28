@@ -15,7 +15,7 @@ namespace exedra {
 			glfwDestroyWindow(window);
 			LOG_CORE_TRACE("GLFW Window Destroyed.");
 		}
-		
+
 		// Init attributes
 		void Window::Init(int _width, int _height, const std::string& _title) {
 
@@ -32,6 +32,7 @@ namespace exedra {
 			// GL 3.2 + GLSL 150
 			glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
 			glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 2);
+			glfwWindowHint(GLFW_COCOA_RETINA_FRAMEBUFFER, GLFW_FALSE);
 			glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);  // 3.2+ only
 			glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);            // Required on Mac
 #else
@@ -46,6 +47,7 @@ namespace exedra {
 
 			current = this;
 			Camera::current->screenRatio = (float)_width / _height;
+
 		}
 
 		// Initializes the GLFW window and the input handler

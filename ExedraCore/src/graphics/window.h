@@ -14,7 +14,7 @@ namespace exedra {
 
 			Window() = default;
 			~Window();
-			
+
 			void Init(int _width, int _height, const std::string& _title);
 			void CreateGLFWwindow();
 			void InitRenderer();
@@ -35,7 +35,7 @@ namespace exedra {
 			static Window* GetWindow(GLFWwindow* _window);
 
 			operator GLFWwindow* ();
-			
+
 		private:
 			GLFWwindow* window;
 			graphics::Renderer renderer;

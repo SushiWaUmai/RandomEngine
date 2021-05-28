@@ -60,6 +60,10 @@ namespace exedra {
 			ImGui_ImplOpenGL3_Init(glslVersion.c_str());
 
 			LOG_CORE_TRACE("ImGui Renderer initialized successfully.");
+
+			float dpiScale = ImGui::GetPlatformIO().Monitors[0].DpiScale;
+			style.ScaleAllSizes(dpiScale);
+			io->FontGlobalScale = dpiScale;
 		}
 
 		void GuiHandler::Draw() {
@@ -70,10 +74,6 @@ namespace exedra {
 			ImGui_ImplOpenGL3_NewFrame();
 			ImGui_ImplGlfw_NewFrame();
 			ImGui::NewFrame();
-
-			//for (auto& win : allWindows) {
-			//	win->DrawImGui();
-			//}
 
 			for (uint32_t i = 0; i < allWindows.size(); i++) {
 				allWindows[i]->DrawImGui();

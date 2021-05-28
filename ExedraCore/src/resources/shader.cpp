@@ -46,7 +46,7 @@ namespace exedra {
 		uint32_t Shader::CreateShader(uint32_t _shaderType, const char* _shaderSource) {
 
 			uint32_t _shaderID;
-			
+
 			_shaderID = glCreateShader(_shaderType);
 			glShaderSource(_shaderID, 1, &_shaderSource, NULL);
 
@@ -109,13 +109,13 @@ namespace exedra {
 		void Shader::SetUniformMatrix(const std::string& _location, const glm::mat2& _value) {
 			int _locID = GetUniformLocation(_location);
 			glUniformMatrix2fv(_locID, 1, GL_FALSE, &_value[0][0]);
-		}												   
-														   
+		}
+
 		void Shader::SetUniformMatrix(const std::string& _location, const glm::mat3& _value) {
 			int _locID = GetUniformLocation(_location);
 			glUniformMatrix3fv(_locID, 1, GL_FALSE, &_value[0][0]);
-		}												   
-														   
+		}
+
 		void Shader::SetUniformMatrix(const std::string& _location, const glm::mat4& _value) {
 			int _locID = GetUniformLocation(_location);
 			glUniformMatrix4fv(_locID, 1, GL_FALSE, &_value[0][0]);
@@ -125,7 +125,7 @@ namespace exedra {
 			glUseProgram(programID);
 
 			int _locID = glGetUniformLocation(programID, _location.c_str());
-			
+
 			if (_locID < 0) {
 				LOG_CORE_ERROR("[Shader Error] Uniform {0} not found.", _location);
 			}

@@ -5,7 +5,7 @@
 
 namespace exedra {
 	namespace resources {
-		
+
 		Texture::Texture(const std::string& _path, int _type) {
 			Init(_path, _type);
 		}
