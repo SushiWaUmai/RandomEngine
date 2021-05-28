@@ -7,11 +7,11 @@
 void Demo::Init(int _width, int _height, const std::string& _title) {
 	Application::Init(_width, _height, _title);
 
-	std::string projectPath = R"(F:\Coding\C++\Projects\Exedra)";
-	//std::string projectPath = R"(C:\Users\eugen\Coding\C++\Projects\Exedra)";
+	//std::string projectPath = R"(F:\Coding\C++\Projects\Exedra)";
+	std::string projectPath = R"(C:\Users\eugen\Coding\C++\Projects\Exedra)";
 
-	std::string vertPath = projectPath + R"(\exedraCore\src\assets\default\shaders\default_vert.glsl)";
-	std::string fragPath = projectPath + R"(\exedraCore\src\assets\default\shaders\default_frag.glsl)";
+	std::string vertPath = projectPath + R"(\exedraCore\assets\default\shaders\default_vert.glsl)";
+	std::string fragPath = projectPath + R"(\exedraCore\assets\default\shaders\default_frag.glsl)";
 
 	//glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 
@@ -27,17 +27,8 @@ void Demo::Init(int _width, int _height, const std::string& _title) {
 		using namespace gui;
 		using namespace ecs;
 
-		//std::string path = R"(D:\Downloads\pose.obj)";
-		//std::string path = R"(C:\Users\eugen\Downloads\just-a-girl\source\sketch\sketch\final_v01.obj)";
-
-
-		//std::string justAGirlPath = R"(D:\Downloads\just-a-girl\source\sketch\final_v01.obj)";
-		//std::shared_ptr<Model> justAGirl = std::make_shared<Model>(justAGirlPath);
-		//Window::current->GetRenderer().AddModel(justAGirl);
-		//justAGirl->transform.SetTransform({ 0, 0, 10 }, { 0, 0, 0 }, { 0.01f, 0.01f, 0.01f });
-
 		Entity cubeEntity;
-		std::string cubePath = projectPath + R"(\ExedraCore\src\assets\default\models\DefaultCube.obj)";
+		std::string cubePath = projectPath + R"(\ExedraCore\assets\default\models\DefaultCube.fbx)";
 		std::shared_ptr<Model> cube = std::make_shared<Model>(cubePath);
 		std::shared_ptr<Transform> trasform = cubeEntity.AddComponent<Transform>();
 		std::shared_ptr<ModelDrawer> drawer = cubeEntity.AddComponent<ModelDrawer>();
@@ -45,7 +36,7 @@ void Demo::Init(int _width, int _height, const std::string& _title) {
 		Window::current->GetRenderer().AddDrawer(drawer);
 		//cube->transform.Translate({ 0, 0, 5 });
 
-		std::string whiteTexture = projectPath + R"(\ExedraCore\src\assets\default\textures\white_pixel.png)";
+		std::string whiteTexture = projectPath + R"(\ExedraCore\assets\default\textures\white_pixel.png)";
 		Texture tex(whiteTexture, aiTextureType_DIFFUSE);
 		tex.Bind();
 

@@ -1,6 +1,7 @@
 #include <glm/gtc/type_ptr.hpp>
 #include "transformwindow.h"
 #include "src/logging/log.h"
+#include <sstream>
 
 namespace exedra {
 	namespace gui {

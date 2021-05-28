@@ -15,7 +15,7 @@ namespace exedra {
             //std::string extensions = resources::Model::GetImportExtensions();
             //std::replace(extensions.begin(), extensions.end(), ';', ',');
 
-            nfdfilteritem_t filterItem[1] = { { "3D Model", "obj" } };
+            nfdfilteritem_t filterItem[1] = { { "3D Model", "obj,fbx" } };
             nfdresult_t result = NFD_OpenDialog(&outPath, filterItem, 1, NULL);
             if (result == NFD_OKAY)
             {
