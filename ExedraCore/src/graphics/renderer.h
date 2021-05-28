@@ -18,7 +18,6 @@ namespace exedra {
 
 			static void Clear();
 			void Draw();
-			void SetClearColor(float _r, float _g, float _b, float _a);
 			void SetClearColor(glm::vec4 _rgba);
 			void AddDrawer(const std::shared_ptr<ecs::Drawer>& _model);
 		private:

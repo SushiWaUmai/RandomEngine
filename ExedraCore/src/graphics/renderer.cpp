@@ -43,11 +43,6 @@ namespace exedra {
 			}
 		}
 
-		void Renderer::SetClearColor(float _r, float _g, float _b, float _a)
-		{
-			glClearColor(_r, _g, _b, _a);
-		}
-
 		void Renderer::SetClearColor(glm::vec4 _rgba)
 		{
 			glClearColor(_rgba.r, _rgba.g, _rgba.b, _rgba.a);

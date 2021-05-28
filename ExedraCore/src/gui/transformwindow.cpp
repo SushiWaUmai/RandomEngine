@@ -17,7 +17,7 @@ namespace exedra {
 
 			title += address;
 
-			ImGui::Begin(title.c_str());
+			ImGui::Begin(title.c_str(), &isOpen, ImGuiWindowFlags_AlwaysAutoResize);
 
 			changed |= ImGui::DragFloat3("Position", glm::value_ptr(obj->position), 0.005f);
 			changed |= ImGui::DragFloat3("Rotation", glm::value_ptr(obj->rotation), 0.005f);

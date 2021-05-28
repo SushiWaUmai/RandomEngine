@@ -1,10 +1,10 @@
 #pragma once
-#include "imguiwindow.h"
+#include "closablewindow.h"
 
 namespace exedra {
 	namespace gui {
 		template<typename T>
-		class ClassEditorWindow : public ImGuiWindow {
+		class ClassEditorWindow : public ClosableWindow {
 		public:
 			void Init(T& _obj);
 			void ChangeTarget(T& _obj);

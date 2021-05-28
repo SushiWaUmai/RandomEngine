@@ -79,7 +79,7 @@ set(SRC
     "src/ecs/drawer.h"
     "src/ecs/scene.cpp"
     "src/ecs/scene.h"
-    )
+     "src/gui/closablewindow.cpp" "src/gui/closablewindow.h")
 
 if(EXD_DYNAMIC_LINK)
     add_library(ExedraCore SHARED ${SRC})

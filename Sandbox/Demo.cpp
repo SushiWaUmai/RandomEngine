@@ -40,7 +40,7 @@ void Demo::Init(int _width, int _height, const std::string& _title) {
 		//Texture tex(whiteTexture, aiTextureType_DIFFUSE);
 		//tex.Bind();
 
-		//Window::current->GetRenderer().SetClearColor(1, 0, 0, 1);
+		Window::current->GetRenderer().SetClearColor({1, 0, 0, 1});
 
 
 		std::string grassTexture = R"(D:\Downloads\grass.png)";

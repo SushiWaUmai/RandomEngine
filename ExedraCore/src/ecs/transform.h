@@ -4,8 +4,8 @@
 
 namespace exedra {
 
-	namespace gui { class TransformWindow; } 
-	
+	namespace gui { class TransformWindow; }
+
 	namespace ecs {
 		class Transform : public Component {
 			friend class gui::TransformWindow;
