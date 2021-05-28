@@ -49,8 +49,8 @@ target_include_directories(ExedraCore PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/vendor
 
 #============================================================================================================================
 # assimp
-target_include_directories(ExedraCore PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/vendor/assimp/x64/include")
-target_link_directories(ExedraCore PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/vendor/assimp/x64/lib")
+target_include_directories(ExedraCore PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/vendor/assimp/include")
+target_link_directories(ExedraCore PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/vendor/assimp/lib")
 
 #============================================================================================================================
 # glm
