@@ -21,7 +21,7 @@ namespace exedra {
 
 			ProcessNode(scene->mRootNode, scene);
 
-			LOG_CORE_TRACE("Successufully loaded Model {0} with {1} meshes and {2} textures", _path, meshes.size(), textures.size());
+			LOG_CORE_TRACE("Successfully loaded Model {0} with {1} meshes and {2} textures", _path, meshes.size(), textures.size());
 		}
 
 		void Model::ProcessNode(aiNode* _node, const aiScene* _scene) {
@@ -67,7 +67,7 @@ namespace exedra {
 				else {
 					vert.uv = glm::vec2(0.0f, 0.0f);
 				}
-				
+
 				vertices.push_back(vert);
 			}
 

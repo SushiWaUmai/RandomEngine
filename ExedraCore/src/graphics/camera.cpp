@@ -10,7 +10,7 @@ namespace exedra {
 
 		Camera::Camera() {
 			current = this;
-			position = glm::vec4(0);
+			position = glm::vec4(0);	
 			rotation = glm::vec2(0);
 		}
 

@@ -6,10 +6,10 @@ namespace exedra {
 
 		class Component {
 		public:
-			Component(Entity& _attached);
+			Component(Entity* _attached);
 			virtual void Init() = 0;
 		protected:
-			Entity atttachedEntity;
+			Entity* atttachedEntity;
 		};
 	}
 }

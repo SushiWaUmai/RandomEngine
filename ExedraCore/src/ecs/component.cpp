@@ -2,7 +2,7 @@
 
 namespace exedra {
 	namespace ecs {
-		Component::Component(Entity& _attached) {
+		Component::Component(Entity* _attached) {
 			atttachedEntity = _attached;
 		}
 	}

@@ -6,11 +6,14 @@ namespace exedra {
 
 		Scene::Scene() {
 			current = this;
+			root.Init("Scene Root");
 		}
 
-		std::shared_ptr<Entity> Scene::CreateEntity() {
-			std::shared_ptr<Entity> result = std::make_shared<Entity>();
-			entities.push_back(result);
+		Entity* Scene::CreateEntity() {
+			//std::shared_ptr<Entity> result = std::make_shared<Entity>();
+			Entity* result = new Entity();
+			root.AddChild(result);
+			//entities.push_back(result);
 			return result;
 		}
 	}

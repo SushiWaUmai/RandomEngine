@@ -28,7 +28,7 @@ namespace exedra {
                     using namespace ecs;
 
                     std::shared_ptr<Model> loadedModel = std::make_shared<Model>(outPath);
-                    std::shared_ptr<Entity> e = Scene::current->CreateEntity();
+                    Entity* e = Scene::current->CreateEntity();
                     e->AddComponent<Transform>();
                     std::shared_ptr<ModelDrawer> drawer = e->AddComponent<ModelDrawer>();
                     drawer->SetModel(loadedModel);

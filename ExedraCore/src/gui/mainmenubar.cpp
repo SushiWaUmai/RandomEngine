@@ -9,7 +9,7 @@ namespace exedra {
 	namespace gui {
 		void MainMenuBar::DrawImGui() {
 
-            ImGui::ShowDemoWindow();
+            //ImGui::ShowDemoWindow();
 
             if (ImGui::BeginMainMenuBar()) {
                 if (ImGui::BeginMenu("File")) {

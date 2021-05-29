@@ -3,16 +3,20 @@
 #include <memory>
 
 namespace exedra {
+
+	namespace gui { class SceneManager; }
+
 	namespace ecs {
 		class Scene {
+			friend class gui::SceneManager;
+
 		public:
 			static Scene* current;
+			Entity root;
 
 			Scene();
-			std::shared_ptr<Entity> CreateEntity();
+			Entity* CreateEntity();
 		private:
-			std::vector<std::shared_ptr<Entity>> entities;
-
 		};
 	}
 }

@@ -9,7 +9,7 @@ namespace exedra {
 		template<typename T>
 		std::shared_ptr<T> Entity::AddComponent() {
 			static_assert(std::is_base_of<Component, T>::value, "Type parameter of this Method must derive from Component");
-			std::shared_ptr<T> shared = std::make_shared<T>(*this);
+			std::shared_ptr<T> shared = std::make_shared<T>(this);
 			components.push_back(shared);
 			shared->Init();
 

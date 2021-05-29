@@ -7,6 +7,7 @@
 #include "dockspacewindow.h"
 #include "camerawindow.h"
 #include "mainmenubar.h"
+#include "scenemanager.h"
 #include "src/graphics/window.h"
 
 namespace exedra {
@@ -34,7 +35,7 @@ namespace exedra {
 			// ContexFlags
 			io->ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;
 			io->ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;
-			//io->ConfigFlags |= ImGuiConfigFlags_DockingEnable;
+			io->ConfigFlags |= ImGuiConfigFlags_DockingEnable;
 			//io->ConfigFlags |= ImGuiConfigFlags_ViewportsEnable;
 
 
@@ -48,13 +49,13 @@ namespace exedra {
 				style.Colors[ImGuiCol_WindowBg].w = 1.0f;
 			}
 
+			LOG_CORE_TRACE("Adding ImGui Windows...");
 			// Create dock spce when docking is enabled
 			if (io->ConfigFlags & ImGuiConfigFlags_DockingEnable) {
-				std::shared_ptr<DockspaceWindow> dockSpaceWindow = std::make_shared<DockspaceWindow>();
-				graphics::Window::current->GetImGui().AddWindow(dockSpaceWindow);
+				AddWindow(std::make_shared<DockspaceWindow>());
 			}
-			std::shared_ptr<MainMenuBar> mainMenuBar = std::make_shared<MainMenuBar>();
-			graphics::Window::current->GetImGui().AddWindow(mainMenuBar);
+			AddWindow(std::make_shared<MainMenuBar>());
+			AddWindow(std::make_shared<SceneManager>());
 
 			ImGui_ImplGlfw_InitForOpenGL(_window, true);
 			ImGui_ImplOpenGL3_Init(glslVersion.c_str());
@@ -64,6 +65,8 @@ namespace exedra {
 			float dpiScale = ImGui::GetPlatformIO().Monitors[0].DpiScale;
 			style.ScaleAllSizes(dpiScale);
 			io->FontGlobalScale = dpiScale;
+
+			LOG_CORE_TRACE("DPI adjusted to scale: {0}", dpiScale);
 		}
 
 		void GuiHandler::Draw() {
