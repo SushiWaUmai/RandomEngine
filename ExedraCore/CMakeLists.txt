@@ -48,6 +48,11 @@ set(SRC
     "src/events/event.cpp"
     "src/events/event.h"
     "src/resources/texture.cpp"
+    "src/resources/texture.h"
+    "src/resources/modeltexture.cpp"
+    "src/resources/modeltexture.h"
+    "src/resources/rendertexture.cpp"
+    "src/resources/rendertexture.h"
 
 # GUI
     "src/gui/imguiwindow.cpp"
@@ -64,6 +69,10 @@ set(SRC
     "src/gui/camerawindow.h"
     "src/gui/mainmenubar.cpp"
     "src/gui/mainmenubar.h"
+    "src/gui/closablewindow.cpp"
+    "src/gui/closablewindow.h"
+    "src/gui/scenemanager.cpp"
+    "src/gui/scenemanager.h"
 
 # ECS
     "src/ecs/transform.cpp"
@@ -79,7 +88,8 @@ set(SRC
     "src/ecs/drawer.h"
     "src/ecs/scene.cpp"
     "src/ecs/scene.h"
-     "src/gui/closablewindow.cpp" "src/gui/closablewindow.h" "src/gui/scenemanager.h" "src/gui/scenemanager.cpp")
+
+     "src/gui/renderview.cpp" "src/gui/renderview.h")
 
 if(EXD_DYNAMIC_LINK)
     add_library(ExedraCore SHARED ${SRC})

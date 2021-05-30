@@ -5,7 +5,7 @@
 #include <vector>
 #include "mesh.h"
 #include "shader.h"
-#include "texture.h"
+#include "modeltexture.h"
 //#include "src/ecs/transform.h"
 
 namespace exedra {
@@ -24,14 +24,14 @@ namespace exedra {
 			void Load(const std::string& _path);
 			void ProcessNode(aiNode* _node, const aiScene* _scene);
 			Mesh ProcessMesh(aiMesh* _mesh, const aiScene* _scene);
-			std::vector<Texture> LoadMaterialTextures(aiMaterial* _mat, aiTextureType _type, std::string _typeName);
+			std::vector<ModelTexture> LoadMaterialTextures(aiMaterial* _mat, aiTextureType _type, std::string _typeName);
 			static const std::string GetImportExtensions();
 
 			//void Draw();
 
 		private:
 			std::vector<Mesh> meshes;
-			std::vector<Texture> textures;
+			std::vector<ModelTexture> textures;
 
 			static Assimp::Importer modelImporter;
 		};

@@ -28,7 +28,8 @@
 
 // Resources
 #include "src/resources/shader.h"
-#include "src/resources/texture.h"
+#include "src/resources/modeltexture.h"
+#include "src/resources/rendertexture.h"
 
 // Utils
 #include "src/utils/time.h"

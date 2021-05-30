@@ -80,21 +80,21 @@ namespace exedra {
 
 			if (_mesh->mMaterialIndex >= 0) {
 				aiMaterial* material = _scene->mMaterials[_mesh->mMaterialIndex];
-				std::vector<Texture> diffuseMaps = LoadMaterialTextures(material, aiTextureType_DIFFUSE, "diffuseMap");
+				std::vector<ModelTexture> diffuseMaps = LoadMaterialTextures(material, aiTextureType_DIFFUSE, "diffuseMap");
 				textures.insert(textures.end(), diffuseMaps.begin(), diffuseMaps.end());
-				std::vector<Texture> specularMaps = LoadMaterialTextures(material, aiTextureType_SPECULAR, "specularMap");
+				std::vector<ModelTexture> specularMaps = LoadMaterialTextures(material, aiTextureType_SPECULAR, "specularMap");
 				textures.insert(textures.end(), specularMaps.begin(), specularMaps.end());
 			}
 
 			return Mesh(vertices, indices);
 		}
 
-		std::vector<Texture> Model::LoadMaterialTextures(aiMaterial* _mat, aiTextureType _type, std::string _typeName) {
-			std::vector<Texture> _textures;
+		std::vector<ModelTexture> Model::LoadMaterialTextures(aiMaterial* _mat, aiTextureType _type, std::string _typeName) {
+			std::vector<ModelTexture> _textures;
 			for (uint32_t i = 0; i < _mat->GetTextureCount(_type); i++) {
 				aiString textureType;
 				_mat->GetTexture(_type, i, &textureType);
-				Texture texture(textureType.C_Str(), _type);
+				ModelTexture texture(textureType.C_Str(), _type);
 				_textures.push_back(texture);
 			}
 			return _textures;

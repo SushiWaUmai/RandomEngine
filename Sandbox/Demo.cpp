@@ -38,53 +38,13 @@ void Demo::Init(int _width, int _height, const std::string& _title) {
 			Window::current->GetRenderer().AddDrawer(drawer);
 			cubeEntity->GetComponent<Transform>()->Translate({ 0, 0, 5 });
 		}
-		{
-			Entity* cubeEntity = scene.CreateEntity();
-			std::string cubePath = projectPath + R"(\ExedraCore\assets\default\models\DefaultCube.fbx)";
-			std::shared_ptr<Model> cube = std::make_shared<Model>(cubePath);
-			std::shared_ptr<Transform> trasform = cubeEntity->AddComponent<Transform>();
-			std::shared_ptr<ModelDrawer> drawer = cubeEntity->AddComponent<ModelDrawer>();
-			drawer->SetModel(cube);
-			Window::current->GetRenderer().AddDrawer(drawer);
-			cubeEntity->GetComponent<Transform>()->Translate({ 0, 0, 5 });
-		}
-		{
-			Entity* cubeEntity = scene.CreateEntity();
-			std::string cubePath = projectPath + R"(\ExedraCore\assets\default\models\DefaultCube.fbx)";
-			std::shared_ptr<Model> cube = std::make_shared<Model>(cubePath);
-			std::shared_ptr<Transform> trasform = cubeEntity->AddComponent<Transform>();
-			std::shared_ptr<ModelDrawer> drawer = cubeEntity->AddComponent<ModelDrawer>();
-			drawer->SetModel(cube);
-			Window::current->GetRenderer().AddDrawer(drawer);
-			cubeEntity->GetComponent<Transform>()->Translate({ 0, 0, 5 });
-		}
-		{
-			Entity* cubeEntity = scene.CreateEntity();
-			std::string cubePath = projectPath + R"(\ExedraCore\assets\default\models\DefaultCube.fbx)";
-			std::shared_ptr<Model> cube = std::make_shared<Model>(cubePath);
-			std::shared_ptr<Transform> trasform = cubeEntity->AddComponent<Transform>();
-			std::shared_ptr<ModelDrawer> drawer = cubeEntity->AddComponent<ModelDrawer>();
-			drawer->SetModel(cube);
-			Window::current->GetRenderer().AddDrawer(drawer);
-			cubeEntity->GetComponent<Transform>()->Translate({ 0, 0, 5 });
-		}
-		{
-			Entity* cubeEntity = scene.CreateEntity();
-			std::string cubePath = projectPath + R"(\ExedraCore\assets\default\models\DefaultCube.fbx)";
-			std::shared_ptr<Model> cube = std::make_shared<Model>(cubePath);
-			std::shared_ptr<Transform> trasform = cubeEntity->AddComponent<Transform>();
-			std::shared_ptr<ModelDrawer> drawer = cubeEntity->AddComponent<ModelDrawer>();
-			drawer->SetModel(cube);
-			Window::current->GetRenderer().AddDrawer(drawer);
-			cubeEntity->GetComponent<Transform>()->Translate({ 0, 0, 5 });
-		}
 
 		std::string whiteTexture = projectPath + R"(\ExedraCore\assets\default\textures\white_pixel.png)";
-		Texture tex(whiteTexture, aiTextureType_DIFFUSE);
+		ModelTexture tex(whiteTexture, aiTextureType_DIFFUSE);
 		tex.Bind();
 
-		//Window::current->GetRenderer().SetClearColor({1, 0, 0, 1});
-
+		//RenderTexture renderTex(1000, 1000);
+		//renderTex.Bind();
 
 		//std::string grassTexture = R"(D:\Downloads\grass.png)";
 		//Texture grassTex(grassTexture, aiTextureType_DIFFUSE);
@@ -104,8 +64,7 @@ void Demo::Update() {
 	shader.SetUniformVector("objectColor", glm::vec3(1));
 	shader.SetUniformVector("lightDirection", lightDirection);
 
-	shader.SetUniformMatrix("ViewMatrix", Camera::current->GetViewMatrix());
-	shader.SetUniformMatrix("ProjectionMatrix", Camera::current->GetProjectionMatrix());
+	shader.SetUniformMatrix("ViewProjectionMatrix", Camera::current->GetViewProjectionMatrix());
 
 	Application::Update();
 }

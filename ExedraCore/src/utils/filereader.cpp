@@ -1,6 +1,7 @@
 #include "filereader.h"
 #include "src/logging/log.h"
 #include <fstream>
+#include <stb_image.h>
 
 namespace exedra {
 	namespace utils {
@@ -27,7 +28,6 @@ namespace exedra {
 
 		}
 
-
 		std::string FileReader::LoadText(const std::string& _path) {
 
 			std::string result;
@@ -53,6 +53,14 @@ namespace exedra {
 
 		std::string FileReader::GetFileName(const std::string& _fullPath) {
 			return _fullPath.substr(_fullPath.find_last_of("/\\") + 1);
+		}
+
+		uint8_t* FileReader::LoadImageFile(const std::string& _path, int& _width, int& _height, int& _nrChannels, int targetChannels) {
+			return stbi_load(_path.c_str(), &_width, &_height, &_nrChannels, targetChannels);
+		}
+
+		void FileReader::FreeImagefile(uint8_t* data) {
+			stbi_image_free(data);
 		}
 	}
 }

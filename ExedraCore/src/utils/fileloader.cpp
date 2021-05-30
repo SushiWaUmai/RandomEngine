@@ -2,6 +2,7 @@
 #include <nfd.h>
 #include "src/logging/log.h"
 #include "src/resources/model.h"
+#include "src/resources/modeltexture.h"
 #include "src/graphics/window.h"
 #include "src/gui/transformwindow.h"
 #include "src/ecs/entity.h"
@@ -55,7 +56,7 @@ namespace exedra {
 
                 {
                     using namespace resources;
-                    Texture tex(outPath, aiTextureType_DIFFUSE);
+                    ModelTexture tex(outPath, aiTextureType_DIFFUSE);
                     tex.Bind();
                 }
 
