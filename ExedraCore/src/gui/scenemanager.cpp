@@ -16,7 +16,7 @@ namespace exedra {
 		void SceneManager::DrawEntityTree(ecs::Entity* _entity) {
 			using namespace ecs;
 
-			if (_entity->GetParent() != nullptr) {
+			if (_entity->children.size() == 0) {
 				ImGui::Text(_entity->name.c_str());
 				return;
 			}

@@ -1,6 +1,7 @@
 #include "rendertexture.h"
 #include "glad/glad.h"
 #include "src/logging/log.h"
+#include "src/graphics/camera.h"
 
 namespace exedra {
 	namespace res {
@@ -34,6 +35,15 @@ namespace exedra {
 			UnbindFB();
 
 			LOG_CORE_TRACE("Created Rendertexture with dimensions ({0}, {1})", width, height);
+		}
+
+		// TODO Implement framebuffer resize
+		void RenderTexture::Resize(int _width, int _height) {
+			if (width == _width && height == _height)
+				return;
+
+			width = _width;
+			height = _height;
 		}
 
 		void RenderTexture::BindFB() {

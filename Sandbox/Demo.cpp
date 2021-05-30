@@ -30,6 +30,7 @@ void Demo::Init(int _width, int _height, const std::string& _title) {
 
 		{
 			Entity* cubeEntity = scene.CreateEntity();
+			cubeEntity->Init("Cube");
 			std::string cubePath = projectPath + R"(\ExedraCore\assets\default\models\DefaultCube.fbx)";
 			std::shared_ptr<Model> cube = std::make_shared<Model>(cubePath);
 			std::shared_ptr<Transform> trasform = cubeEntity->AddComponent<Transform>();
@@ -37,16 +38,14 @@ void Demo::Init(int _width, int _height, const std::string& _title) {
 			drawer->SetModel(cube);
 			Window::current->GetRenderer().AddDrawer(drawer);
 			cubeEntity->GetComponent<Transform>()->Translate({ 0, 0, 5 });
+
 		}
 
 		std::string whiteTexture = projectPath + R"(\ExedraCore\assets\default\textures\white_pixel.png)";
 		ModelTexture tex(whiteTexture, aiTextureType_DIFFUSE);
 		tex.Bind();
 
-		//Window::current->GetRenderer().SetClearColor({ 21.0/255, 32.0/255, 43.0/255, 1 });
-
-		//RenderTexture renderTex(1000, 1000);
-		//renderTex.Bind();
+		Window::current->GetRenderer().SetClearColor({ 21.0/255, 32.0/255, 43.0/255, 1 });
 
 		//std::string grassTexture = R"(D:\Downloads\grass.png)";
 		//Texture grassTex(grassTexture, aiTextureType_DIFFUSE);
@@ -55,8 +54,10 @@ void Demo::Init(int _width, int _height, const std::string& _title) {
 }
 
 void Demo::Update() {
+	using namespace exedra::graphics;
 
 	shader.UseShader();
+
 	glm::vec3 lightDirection = glm::vec3(0.75f, -1, 0.5f);
 
 	typedef exedra::graphics::Camera Camera;

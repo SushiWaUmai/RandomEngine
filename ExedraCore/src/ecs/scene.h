@@ -12,11 +12,11 @@ namespace exedra {
 
 		public:
 			static Scene* current;
-			Entity root;
 
 			Scene();
 			Entity* CreateEntity();
 		private:
+			Entity root;
 		};
 	}
 }

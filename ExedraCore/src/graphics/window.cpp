@@ -107,14 +107,14 @@ namespace exedra {
 		void Window::window_frambuffersize_callback(GLFWwindow* _window, int _width, int _height) {
 			graphics::Window* handler = graphics::Window::GetWindow(_window);
 			handler->ResizeFramebuffer(_width, _height);
-			Camera::current->screenRatio = (float)_width / _height;
 		}
 
 		void Window::ResizeFramebuffer(int _width, int _height) {
 			width = _width;
 			height = _height;
 
-			glViewport(0, 0, width, height);
+			//glViewport(0, 0, width, height);
+			//Camera::current->screenRatio = (float)_width / _height;
 			//Update();
 		}
 

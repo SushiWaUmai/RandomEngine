@@ -6,8 +6,10 @@ namespace exedra {
 		class RenderTexture : public Texture {
 		public:
 			RenderTexture() = default;
-			RenderTexture(int width, int height);
-			void Init(int width, int height);
+			RenderTexture(int _width, int _height);
+			void Init(int _width, int _height);
+
+			void Resize(int _width, int _height);
 
 			void BindFB();
 			void BindRB();

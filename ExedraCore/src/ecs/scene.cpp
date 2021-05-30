@@ -10,10 +10,8 @@ namespace exedra {
 		}
 
 		Entity* Scene::CreateEntity() {
-			//std::shared_ptr<Entity> result = std::make_shared<Entity>();
 			Entity* result = new Entity();
 			root.AddChild(result);
-			//entities.push_back(result);
 			return result;
 		}
 	}

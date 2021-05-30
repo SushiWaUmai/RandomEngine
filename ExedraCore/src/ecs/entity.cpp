@@ -31,9 +31,9 @@ namespace exedra {
 		}
 
 		void Entity::SetParent(Entity* _parent) {
-			_parent->RemoveChild(this);
+			parent->RemoveChild(this);
 			parent = _parent;
-			_parent->children.push_back(this);
+			parent->children.push_back(this);
 		}
 
 		void Entity::AddChild(Entity* _child) {
