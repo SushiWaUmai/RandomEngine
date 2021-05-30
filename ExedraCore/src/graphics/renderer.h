@@ -17,12 +17,13 @@ namespace exedra {
 			~Renderer();
 			void Init(GLFWwindow* _window);
 
-			static void Clear();
+			void Clear();
 			void Draw();
 			void SetClearColor(glm::vec4 _rgba);
 			void AddDrawer(const std::shared_ptr<ecs::Drawer>& _model);
 		private:
 			Camera cam;
+			glm::vec4 clearColor;
 			res::RenderTexture renderTexture;
 			std::vector<std::shared_ptr<ecs::Drawer>> models;
 		};

@@ -7,6 +7,7 @@
 #include "dockspacewindow.h"
 #include <memory>
 #include <vector>
+#include <glm/glm.hpp>
 
 namespace exedra {
 	namespace gui {
@@ -20,7 +21,11 @@ namespace exedra {
 			void RemoveWindow(const std::shared_ptr<ImGuiWindow> _imguiWindow);
 			inline void SetUserFontScaling(bool set) const { io->FontAllowUserScaling = set; }
 
+			void Clear();
+			void SetClearColor(glm::vec4 _rgba);
+
 		private:
+			glm::vec4 clearColor;
 			ImGuiIO* io;
 			std::string glslVersion;
 			std::vector<std::shared_ptr<ImGuiWindow>> allWindows;

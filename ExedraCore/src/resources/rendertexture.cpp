@@ -37,13 +37,24 @@ namespace exedra {
 			LOG_CORE_TRACE("Created Rendertexture with dimensions ({0}, {1})", width, height);
 		}
 
-		// TODO Implement framebuffer resize
 		void RenderTexture::Resize(int _width, int _height) {
 			if (width == _width && height == _height)
 				return;
 
 			width = _width;
 			height = _height;
+
+			Bind();
+			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, NULL);
+
+			BindRB();
+			glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH24_STENCIL8, width, height);
+			UnbindRB();
+
+			Unbind();
+
+			glViewport(0, 0, width, height);
+			graphics::Camera::current->screenRatio = (float)width / height;
 
 		}
 

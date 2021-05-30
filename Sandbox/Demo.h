@@ -11,4 +11,5 @@ protected:
 private:
 	exedra::ecs::Scene scene;
 	exedra::res::Shader shader;
+	exedra::res::ModelTexture whiteTex;
 };

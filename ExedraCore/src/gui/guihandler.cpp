@@ -43,8 +43,7 @@ namespace exedra {
 
 			// When viewports are enabled we tweak WindowRounding/WindowBg so platform windows can look identical to regular ones.
 			ImGuiStyle& style = ImGui::GetStyle();
-			if (io->ConfigFlags & ImGuiConfigFlags_ViewportsEnable)
-			{
+			if (io->ConfigFlags & ImGuiConfigFlags_ViewportsEnable) {
 				style.WindowRounding = 0.0f;
 				style.Colors[ImGuiCol_WindowBg].w = 1.0f;
 			}
@@ -72,6 +71,7 @@ namespace exedra {
 		void GuiHandler::Draw() {
 			// Unuse shader
 			res::Shader::UnuseShader();
+			Clear();
 
 			// Main ImGui Loop
 			ImGui_ImplOpenGL3_NewFrame();
@@ -109,6 +109,15 @@ namespace exedra {
 			ImGui_ImplGlfw_Shutdown();
 
 			LOG_CORE_TRACE("GUI Handler Destroyed.");
+		}
+
+		void GuiHandler::Clear() {
+			glClearColor(clearColor.r, clearColor.g, clearColor.b, clearColor.a);
+			glClear(GL_COLOR_BUFFER_BIT);
+		}
+
+		void GuiHandler::SetClearColor(glm::vec4 _rgba) {
+			clearColor = _rgba;
 		}
 	}
 }

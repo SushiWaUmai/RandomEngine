@@ -28,7 +28,7 @@ namespace exedra {
 
 			LOG_CORE_TRACE("Camera created.");
 
-			renderTexture.Init(2000, 2000);
+			renderTexture.Init(1, 1);
 			std::shared_ptr<gui::RenderView> renderWindow = std::make_shared<gui::RenderView>();
 			renderWindow->Init(renderTexture);
 			graphics::Window::current->GetImGui().AddWindow(renderWindow);
@@ -36,10 +36,6 @@ namespace exedra {
 			LOG_CORE_TRACE("Render window created.");
 
 			LOG_CORE_TRACE("Renderer initialized successfully.");
-		}
-
-		void Renderer::Clear() {
-			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		}
 
 		void Renderer::Draw() {
@@ -52,12 +48,15 @@ namespace exedra {
 				m->Draw();
 
 			renderTexture.UnbindFB();
-			Clear();
 		}
 
-		void Renderer::SetClearColor(glm::vec4 _rgba)
-		{
-			glClearColor(_rgba.r, _rgba.g, _rgba.b, _rgba.a);
+		void Renderer::Clear() {
+			glClearColor(clearColor.r, clearColor.g, clearColor.b, clearColor.a);
+			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+		}
+
+		void Renderer::SetClearColor(glm::vec4 _rgba) {
+			clearColor = _rgba;
 		}
 
 		void Renderer::AddDrawer(const std::shared_ptr<ecs::Drawer>& _model) {

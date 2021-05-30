@@ -9,8 +9,6 @@ namespace exedra {
 	namespace gui {
 		void MainMenuBar::DrawImGui() {
 
-            //ImGui::ShowDemoWindow();
-
             if (ImGui::BeginMainMenuBar()) {
                 if (ImGui::BeginMenu("File")) {
                     if (ImGui::BeginMenu("Open", "CTRL+O")) {

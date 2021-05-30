@@ -114,7 +114,6 @@ namespace exedra {
 			height = _height;
 
 			//glViewport(0, 0, width, height);
-			//Camera::current->screenRatio = (float)_width / _height;
 			//Update();
 		}
 

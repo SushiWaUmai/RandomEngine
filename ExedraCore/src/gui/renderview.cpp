@@ -9,11 +9,10 @@ namespace exedra {
 
 			ImGui::Begin("Render View");
 			{
-				ImGui::Text("This is the render view");
 				// Using a Child allow to fill all the space of the window.
 				// It also alows customization
 				ImGui::BeginChild("Game");
-				// Get the size of the child (i.e. the whole draw size of the windows).
+				 //Get the size of the child (i.e. the whole draw size of the windows).
 				ImVec2 wsize = ImGui::GetWindowSize();
 				obj->Resize(wsize.x, wsize.y);
 

@@ -42,8 +42,7 @@ void Demo::Init(int _width, int _height, const std::string& _title) {
 		}
 
 		std::string whiteTexture = projectPath + R"(\ExedraCore\assets\default\textures\white_pixel.png)";
-		ModelTexture tex(whiteTexture, aiTextureType_DIFFUSE);
-		tex.Bind();
+		whiteTex.Init(whiteTexture, aiTextureType_DIFFUSE);
 
 		Window::current->GetRenderer().SetClearColor({ 21.0/255, 32.0/255, 43.0/255, 1 });
 
@@ -56,6 +55,7 @@ void Demo::Init(int _width, int _height, const std::string& _title) {
 void Demo::Update() {
 	using namespace exedra::graphics;
 
+	whiteTex.Bind();
 	shader.UseShader();
 
 	glm::vec3 lightDirection = glm::vec3(0.75f, -1, 0.5f);
