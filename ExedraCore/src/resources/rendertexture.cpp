@@ -44,6 +44,7 @@ namespace exedra {
 
 			width = _width;
 			height = _height;
+
 		}
 
 		void RenderTexture::BindFB() {
