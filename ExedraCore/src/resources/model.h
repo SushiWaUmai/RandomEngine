@@ -12,7 +12,7 @@ namespace exedra {
 
 	namespace ecs { class ModelDrawer; }
 
-	namespace resources {
+	namespace res {
 		class Model {
 			friend class ecs::ModelDrawer;
 

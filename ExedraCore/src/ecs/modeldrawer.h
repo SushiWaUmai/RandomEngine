@@ -8,10 +8,10 @@ namespace exedra {
 		public:
 			using Drawer::Drawer;
 			void Draw() override;
-			void SetModel(const std::shared_ptr<resources::Model> _model);
+			void SetModel(const std::shared_ptr<res::Model> _model);
 
 		private:
-			std::shared_ptr<resources::Model> model;
+			std::shared_ptr<res::Model> model;
 		};
 	}
 }

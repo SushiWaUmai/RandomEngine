@@ -3,7 +3,7 @@
 #include "src/logging/log.h"
 
 namespace exedra {
-	namespace resources {
+	namespace res {
 
 		void Texture::Init() {
 

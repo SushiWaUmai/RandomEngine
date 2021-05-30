@@ -5,7 +5,7 @@
 #include "src/core.h"
 
 namespace exedra {
-	namespace resources {
+	namespace res {
 		class EXD_API Shader {
 		public:
 			static Shader *current;

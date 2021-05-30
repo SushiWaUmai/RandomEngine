@@ -5,7 +5,7 @@
 #include "src/utils/filereader.h"
 
 namespace exedra {
-	namespace resources {
+	namespace res {
 		ModelTexture::ModelTexture(const std::string& _path, int _type) {
 			Init(_path, _type);
 		}

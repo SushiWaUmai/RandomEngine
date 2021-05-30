@@ -2,7 +2,7 @@
 #include <glad/glad.h>
 
 namespace exedra {
-	namespace resources {
+	namespace res {
 
 		Mesh::Mesh(const std::vector<Vertex>& _vertices, const std::vector<uint32_t>& _indices)
 		{

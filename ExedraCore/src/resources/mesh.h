@@ -5,7 +5,7 @@
 //#include "src/resources/texture.h"
 
 namespace exedra {
-	namespace resources {
+	namespace res {
 		class Mesh {
 		public:
 			struct Vertex {

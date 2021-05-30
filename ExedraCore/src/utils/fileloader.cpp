@@ -24,7 +24,7 @@ namespace exedra {
                 LOG_CORE_TRACE("Successfully opened file: {0}", outPath);
 
                 {
-                    using namespace resources;
+                    using namespace res;
                     using namespace graphics;
                     using namespace ecs;
 
@@ -55,7 +55,7 @@ namespace exedra {
                 LOG_CORE_TRACE("Successfully opened file: {0}", outPath);
 
                 {
-                    using namespace resources;
+                    using namespace res;
                     ModelTexture tex(outPath, aiTextureType_DIFFUSE);
                     tex.Bind();
                 }

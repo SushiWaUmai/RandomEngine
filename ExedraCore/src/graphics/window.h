@@ -24,6 +24,7 @@ namespace exedra {
 			void ResizeFramebuffer(int _width, int _height);
 			void FocusWindow(int _focused);
 			void MaximizeWindow(int _maximized);
+			void IconifyWindow(int _iconified);
 
 			inline int GetWidth() const { return width; }
 			inline int GetHeight() const { return height; }
@@ -44,10 +45,12 @@ namespace exedra {
 			int width;
 			int height;
 			std::string title;
+			bool iconified = false;
 
 			static void window_frambuffersize_callback(GLFWwindow* _window, int _width, int _height);
 			static void window_focus_callback(GLFWwindow* _window, int _focused);
 			static void window_maximize_callback(GLFWwindow* _window, int _maximized);
+			static void window_iconify_callback(GLFWwindow* _window, int _iconified);
 		};
 	}
 }

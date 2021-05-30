@@ -2,13 +2,13 @@
 #include <iostream>
 
 namespace exedra {
-	namespace resources {
+	namespace res {
 		class Texture {
 		public:
 			Texture() = default;
 
 			void Init();
-			virtual void Bind();
+			void Bind();
 			static void Unbind();
 
 			inline const int GetWidth() const { return width;  }

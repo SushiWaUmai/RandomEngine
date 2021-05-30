@@ -71,7 +71,7 @@ namespace exedra {
 
 		void GuiHandler::Draw() {
 			// Unuse shader
-			resources::Shader::UnuseShader();
+			res::Shader::UnuseShader();
 
 			// Main ImGui Loop
 			ImGui_ImplOpenGL3_NewFrame();

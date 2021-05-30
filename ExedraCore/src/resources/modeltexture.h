@@ -3,7 +3,7 @@
 #include <iostream>
 
 namespace exedra {
-	namespace resources {
+	namespace res {
 		class ModelTexture : public Texture {
 		public:
 			ModelTexture() = default;

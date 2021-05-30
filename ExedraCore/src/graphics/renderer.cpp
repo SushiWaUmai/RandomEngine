@@ -3,6 +3,7 @@
 #include "src/resources/shader.h"
 #include "src/resources/model.h"
 #include "src/gui/camerawindow.h"
+#include "src/gui/renderview.h"
 #include <memory>
 
 namespace exedra {
@@ -24,8 +25,15 @@ namespace exedra {
 			std::shared_ptr<gui::CameraWindow> camWindow = std::make_shared<gui::CameraWindow>();
 			camWindow->Init(cam);
 			graphics::Window::current->GetImGui().AddWindow(camWindow);
+
 			LOG_CORE_TRACE("Camera created.");
 
+			renderTexture.Init(2000, 2000);
+			std::shared_ptr<gui::RenderView> renderWindow = std::make_shared<gui::RenderView>();
+			renderWindow->Init(renderTexture);
+			graphics::Window::current->GetImGui().AddWindow(renderWindow);
+
+			LOG_CORE_TRACE("Render window created.");
 
 			LOG_CORE_TRACE("Renderer initialized successfully.");
 		}
@@ -37,10 +45,14 @@ namespace exedra {
 		void Renderer::Draw() {
 
 			cam.Update();
+			renderTexture.BindFB();
 			Clear();
-			for (auto& m : models) {
+
+			for (auto& m : models)
 				m->Draw();
-			}
+
+			renderTexture.UnbindFB();
+			Clear();
 		}
 
 		void Renderer::SetClearColor(glm::vec4 _rgba)

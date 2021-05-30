@@ -22,7 +22,7 @@ void Demo::Init(int _width, int _height, const std::string& _title) {
 	// Load Meshes
 	{
 		using namespace exedra;
-		using namespace resources;
+		using namespace res;
 		using namespace graphics;
 		using namespace gui;
 		using namespace ecs;
@@ -42,6 +42,8 @@ void Demo::Init(int _width, int _height, const std::string& _title) {
 		std::string whiteTexture = projectPath + R"(\ExedraCore\assets\default\textures\white_pixel.png)";
 		ModelTexture tex(whiteTexture, aiTextureType_DIFFUSE);
 		tex.Bind();
+
+		//Window::current->GetRenderer().SetClearColor({ 21.0/255, 32.0/255, 43.0/255, 1 });
 
 		//RenderTexture renderTex(1000, 1000);
 		//renderTex.Bind();

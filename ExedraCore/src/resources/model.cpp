@@ -4,7 +4,7 @@
 #include "src/graphics/window.h"
 
 namespace exedra {
-	namespace resources {
+	namespace res {
 		Assimp::Importer Model::modelImporter;
 
 		Model::Model(const std::string& _path) {

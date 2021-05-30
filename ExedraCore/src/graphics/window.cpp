@@ -69,21 +69,25 @@ namespace exedra {
 			glfwSetFramebufferSizeCallback(window, window_frambuffersize_callback);
 			glfwSetWindowFocusCallback(window, window_focus_callback);
 			glfwSetWindowMaximizeCallback(window, window_maximize_callback);
+			glfwSetWindowIconifyCallback(window, window_iconify_callback);
 
 			glfwSetWindowUserPointer(window, static_cast<void*>(this));
 		}
 
 		void Window::InitRenderer() {
-			renderer.Init(window);
 			imguiHandler.Init(window);
+			renderer.Init(window);
 			inputHandler.Init();
 		}
 
 		void Window::Update() {
-			renderer.Draw();
-			imguiHandler.Draw();
+			if (!iconified) {
+				renderer.Draw();
+				imguiHandler.Draw();
 
-			glfwSwapBuffers(window);
+				glfwSwapBuffers(window);
+			}
+
 			glfwPollEvents();
 		}
 
@@ -133,6 +137,16 @@ namespace exedra {
 
 		void Window::MaximizeWindow(int _maximized) {
 			LOG_CORE_TRACE("Window \"{0}\" was {1}.", title, _maximized ? "maximized" : "minimized");
+		}
+
+		void Window::window_iconify_callback(GLFWwindow* _window, int _iconified) {
+			graphics::Window* handler = graphics::Window::GetWindow(_window);
+			handler->IconifyWindow(_iconified);
+		}
+
+		void Window::IconifyWindow(int _iconified) {
+			iconified = _iconified;
+			LOG_CORE_TRACE("Window \"{0}\" was {1}.", title, _iconified ? "iconified" : "restored");
 		}
 	}
 }

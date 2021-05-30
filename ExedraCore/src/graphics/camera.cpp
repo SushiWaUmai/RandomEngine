@@ -2,6 +2,7 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include "window.h"
 #include "src/utils/time.h"
+#include <cmath>
 
 namespace exedra {
 	namespace graphics {
@@ -10,7 +11,7 @@ namespace exedra {
 
 		Camera::Camera() {
 			current = this;
-			position = glm::vec4(0);	
+			position = glm::vec4(0);
 			rotation = glm::vec2(0);
 		}
 

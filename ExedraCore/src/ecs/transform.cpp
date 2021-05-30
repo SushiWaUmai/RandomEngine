@@ -41,7 +41,7 @@ namespace exedra {
 		}
 
 		void Transform::ApplyShader() {
-			resources::Shader::current->SetUniformMatrix("ModelMatrix", transform);
+			res::Shader::current->SetUniformMatrix("ModelMatrix", transform);
 		}
 
 		void Transform::Translate(glm::vec3 _position) {

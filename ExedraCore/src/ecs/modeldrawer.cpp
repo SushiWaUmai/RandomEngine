@@ -10,7 +10,7 @@ namespace exedra {
 			}
 		}
 
-		void ModelDrawer::SetModel(const std::shared_ptr<resources::Model> _model) {
+		void ModelDrawer::SetModel(const std::shared_ptr<res::Model> _model) {
 			model = _model;
 		}
 	}
