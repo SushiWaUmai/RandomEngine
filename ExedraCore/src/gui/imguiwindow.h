@@ -4,7 +4,7 @@
 
 namespace exedra {
 	namespace gui {
-		class EXD_API ImGuiWindow {
+		class EXD_API ImGuiWindow{
 		public:
 			virtual void DrawImGui() = 0;
 		};

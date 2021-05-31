@@ -1,3 +1,5 @@
+#pragma once
+
 namespace exedra {
 	namespace utils {
 		class FileLoader {

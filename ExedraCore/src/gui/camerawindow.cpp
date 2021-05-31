@@ -5,6 +5,8 @@
 namespace exedra {
 	namespace gui {
 		void CameraWindow::DrawImGui() {
+			CheckForFocus();
+
 			if (isOpen) {
 
 				ImGui::Begin("Camera", &isOpen, ImGuiWindowFlags_AlwaysAutoResize);
@@ -17,6 +19,7 @@ namespace exedra {
 				ImGui::End();
 
 			}
+			CheckForClose();
 		}
 	}
 }

@@ -7,6 +7,8 @@ namespace exedra {
 	namespace gui {
 		void TransformWindow::DrawImGui() {
 
+			CheckForFocus();
+
 			bool changed = false;
 
 			std::ostringstream get_the_address;
@@ -27,6 +29,8 @@ namespace exedra {
 
 			if (changed)
 				obj->UpdateTransform();
+
+			CheckForClose();
 		}
 	}
 }

@@ -3,14 +3,18 @@
 
 namespace exedra {
 	namespace gui {
+
 		void SceneManager::DrawImGui() {
 			using namespace ecs;
 
-			if(ImGui::Begin("Scene Manager")) {
+			CheckForFocus();
 
+			if(ImGui::Begin("Scene Manager", &isOpen)) {
 				DrawEntityTree(&Scene::current->root);
 				ImGui::End();
 			}
+
+			CheckForClose();
 		}
 
 		void SceneManager::DrawEntityTree(ecs::Entity* _entity) {

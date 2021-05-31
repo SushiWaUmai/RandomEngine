@@ -4,6 +4,8 @@
 #include "src/logging/log.h"
 #include "src/resources/model.h"
 #include "src/utils/fileloader.h"
+#include "src/graphics/window.h"
+#include "src/gui/scenemanager.h"
 
 namespace exedra {
 	namespace gui {
@@ -19,10 +21,19 @@ namespace exedra {
                     }
                     ImGui::EndMenu();
                 }
+
                 if (ImGui::BeginMenu("Edit")) {
                     if(ImGui::MenuItem("Nothing in here yet!")) {}
                     ImGui::EndMenu();
                 }
+
+                if (ImGui::BeginMenu("View")) {
+                    if (ImGui::MenuItem("Scene Manager")) {
+                        //SceneManager::instance->focus = true;
+                    }
+                    ImGui::EndMenu();
+                }
+
                 ImGui::EndMainMenuBar();
             }
 		}
