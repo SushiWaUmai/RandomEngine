@@ -17,8 +17,8 @@ namespace exedra {
 			~GuiHandler();
 			void Init(GLFWwindow* _window);
 			void Draw();
-			void AddWindow(const std::shared_ptr<ImGuiWindow> _imguiWindow);
-			void RemoveWindow(const std::shared_ptr<ImGuiWindow> _imguiWindow);
+			void AddWindow(ImGuiWindow* _imguiWindow);
+			void RemoveWindow(ImGuiWindow* _imguiWindow);
 			inline void SetUserFontScaling(bool set) const { io->FontAllowUserScaling = set; }
 
 			void Clear();
@@ -28,7 +28,7 @@ namespace exedra {
 			glm::vec4 clearColor;
 			ImGuiIO* io;
 			std::string glslVersion;
-			std::vector<std::shared_ptr<ImGuiWindow>> allWindows;
+			std::vector<ImGuiWindow*> allWindows;
 		};
 	}
 }

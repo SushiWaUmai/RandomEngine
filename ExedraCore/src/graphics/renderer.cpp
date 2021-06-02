@@ -22,14 +22,14 @@ namespace exedra {
 			//glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
 			cam.Init(60, 5, 1);
-			std::shared_ptr<gui::CameraWindow> camWindow = std::make_shared<gui::CameraWindow>();
+			gui::CameraWindow* camWindow = new gui::CameraWindow();
 			camWindow->Init(cam);
 			graphics::Window::current->GetImGui().AddWindow(camWindow);
 
 			LOG_CORE_TRACE("Camera created.");
 
 			renderTexture.Init(1, 1);
-			std::shared_ptr<gui::RenderView> renderWindow = std::make_shared<gui::RenderView>();
+			gui::RenderView* renderWindow = new gui::RenderView();
 			renderWindow->Init(renderTexture);
 			graphics::Window::current->GetImGui().AddWindow(renderWindow);
 

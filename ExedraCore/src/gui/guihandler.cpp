@@ -16,6 +16,7 @@ namespace exedra {
 
 			LOG_CORE_TRACE("Initializing ImGUI Renderer..");
 
+			// Set the imgui version
 #if defined(IMGUI_IMPL_OPENGL_ES2)
 			// GL ES 2.0 + GLSL 100
 			glslVersion = "#version 100";
@@ -26,20 +27,17 @@ namespace exedra {
 			glslVersion = "#version 460";
 #endif
 
+			// Init imgui
 			IMGUI_CHECKVERSION();
 			ImGui::CreateContext();
 
 			io = &ImGui::GetIO();
-
 
 			// ContexFlags
 			io->ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;
 			io->ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;
 			io->ConfigFlags |= ImGuiConfigFlags_DockingEnable;
 			//io->ConfigFlags |= ImGuiConfigFlags_ViewportsEnable;
-
-
-			SetUserFontScaling(true);
 
 			// When viewports are enabled we tweak WindowRounding/WindowBg so platform windows can look identical to regular ones.
 			ImGuiStyle& style = ImGui::GetStyle();
@@ -51,16 +49,18 @@ namespace exedra {
 			LOG_CORE_TRACE("Adding ImGui Windows...");
 			// Create dock spce when docking is enabled
 			if (io->ConfigFlags & ImGuiConfigFlags_DockingEnable) {
-				AddWindow(std::make_shared<DockspaceWindow>());
+				AddWindow(new DockspaceWindow());
 			}
-			AddWindow(std::make_shared<MainMenuBar>());
-			AddWindow(std::make_shared<SceneManager>());
+			// Add main menu bar and scene manager
+			AddWindow(new MainMenuBar());
+			AddWindow(new SceneManager());
 
 			ImGui_ImplGlfw_InitForOpenGL(_window, true);
 			ImGui_ImplOpenGL3_Init(glslVersion.c_str());
 
 			LOG_CORE_TRACE("ImGui Renderer initialized successfully.");
 
+			// Adjust DPI Scale
 			float dpiScale = ImGui::GetPlatformIO().Monitors[0].DpiScale;
 			style.ScaleAllSizes(dpiScale);
 			io->FontGlobalScale = dpiScale;
@@ -78,6 +78,7 @@ namespace exedra {
 			ImGui_ImplGlfw_NewFrame();
 			ImGui::NewFrame();
 
+			// Render all imgui windows
 			for (uint32_t i = 0; i < allWindows.size(); i++) {
 				allWindows[i]->DrawImGui();
 			}
@@ -95,15 +96,24 @@ namespace exedra {
 			}
 		}
 
-		void GuiHandler::AddWindow(const std::shared_ptr<ImGuiWindow> _imguiWindow) {
+		void GuiHandler::AddWindow(ImGuiWindow* _imguiWindow) {
 			allWindows.push_back(_imguiWindow);
 		}
 
-		void GuiHandler::RemoveWindow(const std::shared_ptr<ImGuiWindow> _imguiWindow) {
-			LOG_CORE_WARN("ImGUi Window not removed");
+		void GuiHandler::RemoveWindow(ImGuiWindow* _imguiWindow) {
+			LOG_CORE_TRACE("ImGui Window was removed.");
+			allWindows.erase(std::remove(allWindows.begin(), allWindows.end(), _imguiWindow), allWindows.end());
+			delete _imguiWindow;
 		}
 
 		GuiHandler::~GuiHandler() {
+
+			// Delete all windwos
+			uint32_t size = allWindows.size();
+			for (ImGuiWindow* window : allWindows) {
+				delete window;
+			}
+
 			// Cleanup
 			ImGui_ImplOpenGL3_Shutdown();
 			ImGui_ImplGlfw_Shutdown();
@@ -112,6 +122,7 @@ namespace exedra {
 		}
 
 		void GuiHandler::Clear() {
+			// Clear gui color
 			glClearColor(clearColor.r, clearColor.g, clearColor.b, clearColor.a);
 			glClear(GL_COLOR_BUFFER_BIT);
 		}

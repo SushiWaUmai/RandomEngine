@@ -3,13 +3,13 @@
 
 namespace exedra {
 	namespace gui {
-		template<typename T>
-		class ClassEditorWindow : public ClosableWindow {
+		template<typename T, typename O>
+		class ClassEditorWindow : public ClosableWindow<T> {
 		public:
-			void Init(T& _obj);
-			void ChangeTarget(T& _obj);
+			void Init(O& _obj);
+			void ChangeTarget(O& _obj);
 		protected:
-			T* obj;
+			O* obj;
 		};
 	}
 }

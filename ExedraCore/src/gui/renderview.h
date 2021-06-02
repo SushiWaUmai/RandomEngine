@@ -5,7 +5,7 @@
 
 namespace exedra {
 	namespace gui {
-		class RenderView : public ClassEditorWindow <res::RenderTexture> {
+		class RenderView : public ClassEditorWindow <RenderView, res::RenderTexture> {
 		public:
 			void DrawImGui() override;
 		};

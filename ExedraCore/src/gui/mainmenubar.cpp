@@ -27,10 +27,24 @@ namespace exedra {
                     ImGui::EndMenu();
                 }
 
-                if (ImGui::BeginMenu("View")) {
-                    if (ImGui::MenuItem("Scene Manager")) {
-                        //SceneManager::instance->focus = true;
+                if (ImGui::BeginMenu("Window")) {
+
+                    if (ImGui::BeginMenu("Focus")) {
+                        if (ImGui::MenuItem("Scene Manager")) {
+                            //SceneManager::GetMainWindow().FocusWindow();
+                        }
+
+                        ImGui::EndMenu();
                     }
+
+                    if (ImGui::BeginMenu("Create")) {
+                        if (ImGui::MenuItem("Scene Manager")) {
+                            graphics::Window::current->GetImGui().AddWindow(new SceneManager());
+                        }
+
+                        ImGui::EndMenu();
+                    }
+
                     ImGui::EndMenu();
                 }
 

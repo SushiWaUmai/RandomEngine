@@ -64,9 +64,13 @@ add_subdirectory("vendor/nativefiledialog-extended")
 target_link_libraries(ExedraCore PUBLIC nfd)
 
 #============================================================================================================================
+# entt
+add_subdirectory("vendor/entt")
+target_link_libraries(ExedraCore PUBLIC EnTT)
+
+#============================================================================================================================
 # ExedraCore
 target_include_directories(ExedraCore PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/ExedraCore")
-
 target_link_libraries(Sandbox PRIVATE ExedraCore)
 
 #============================================================================================================================

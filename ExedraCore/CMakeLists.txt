@@ -89,7 +89,7 @@ set(SRC
     "src/ecs/scene.cpp"
     "src/ecs/scene.h"
 
-     "src/gui/renderview.cpp" "src/gui/renderview.h" "src/gui/closablewindow.h" "src/gui/closablewindow.cpp")
+     "src/gui/renderview.cpp" "src/gui/renderview.h" "src/gui/closablewindow.h" "src/gui/closablewindow.tpp")
 
 if(EXD_DYNAMIC_LINK)
     add_library(ExedraCore SHARED ${SRC})
@@ -99,7 +99,7 @@ if(EXD_DYNAMIC_LINK)
         "${CMAKE_BINARY_DIR}/bin/ExedraCore-$<CONFIGURATION>/ExedraCore-$<CONFIGURATION>.dll"
         "${CMAKE_BINARY_DIR}/bin/Sandbox-$<CONFIGURATION>/ExedraCore-$<CONFIGURATION>.dll")
 elseif(EXD_STATIC_LINK)
-    add_library(ExedraCore STATIC ${SRC})
+    add_library(ExedraCore STATIC ${SRC} "src/gui/closablewindow.cpp")
 endif()
 
 target_compile_definitions(ExedraCore PUBLIC

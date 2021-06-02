@@ -4,7 +4,7 @@
 
 namespace exedra {
 	namespace gui {
-		class CameraWindow : public ClassEditorWindow<graphics::Camera> {
+		class CameraWindow : public ClassEditorWindow<CameraWindow, graphics::Camera> {
 		public:
 			void DrawImGui() override;
 		};

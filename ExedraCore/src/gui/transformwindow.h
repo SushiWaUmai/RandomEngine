@@ -5,7 +5,7 @@
 
 namespace exedra {
 	namespace gui {
-		class TransformWindow : public ClassEditorWindow<ecs::Transform> {
+		class TransformWindow : public ClassEditorWindow<TransformWindow, ecs::Transform> {
 		protected:
 			void DrawImGui() override;
 		};

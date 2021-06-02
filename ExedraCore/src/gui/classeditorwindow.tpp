@@ -2,13 +2,13 @@
 
 namespace exedra {
 	namespace gui {
-		template<typename T>
-		void ClassEditorWindow<T>::Init(T& _obj) {
+		template<typename T, typename O>
+		void ClassEditorWindow<T, O>::Init(O& _obj) {
 			ChangeTarget(_obj);
 		}
 
-		template<typename T>
-		void ClassEditorWindow<T>::ChangeTarget(T& _obj) {
+		template<typename T, typename O>
+		void ClassEditorWindow<T, O>::ChangeTarget(O& _obj) {
 			obj = &_obj;
 		}
 	}

@@ -9,7 +9,7 @@ namespace exedra {
 
 			CheckForFocus();
 
-			if(ImGui::Begin("Render View", &isOpen))
+			if(isOpen && ImGui::Begin("Render View", &isOpen))
 			{
 				// Using a Child allow to fill all the space of the window.
 				// It also alows customization

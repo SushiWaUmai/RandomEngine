@@ -9,7 +9,7 @@ namespace exedra {
 
 			CheckForFocus();
 
-			if(ImGui::Begin("Scene Manager", &isOpen)) {
+			if(isOpen && ImGui::Begin("Scene Manager", &isOpen)) {
 				DrawEntityTree(&Scene::current->root);
 				ImGui::End();
 			}

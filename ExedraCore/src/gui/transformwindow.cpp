@@ -19,16 +19,16 @@ namespace exedra {
 
 			title += address;
 
-			ImGui::Begin(title.c_str(), &isOpen, ImGuiWindowFlags_AlwaysAutoResize);
+			if (isOpen && ImGui::Begin(title.c_str(), &isOpen, ImGuiWindowFlags_AlwaysAutoResize)) {
+				changed |= ImGui::DragFloat3("Position", glm::value_ptr(obj->position), 0.005f);
+				changed |= ImGui::DragFloat3("Rotation", glm::value_ptr(obj->rotation), 0.005f);
+				changed |= ImGui::DragFloat3("Scale", glm::value_ptr(obj->scale), 0.005f);
 
-			changed |= ImGui::DragFloat3("Position", glm::value_ptr(obj->position), 0.005f);
-			changed |= ImGui::DragFloat3("Rotation", glm::value_ptr(obj->rotation), 0.005f);
-			changed |= ImGui::DragFloat3("Scale", glm::value_ptr(obj->scale), 0.005f);
+				ImGui::End();
 
-			ImGui::End();
-
-			if (changed)
-				obj->UpdateTransform();
+				if (changed)
+					obj->UpdateTransform();
+			}
 
 			CheckForClose();
 		}

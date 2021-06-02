@@ -14,7 +14,7 @@ namespace exedra {
 			using namespace gui;
 			using namespace graphics;
 
-			std::shared_ptr<TransformWindow> window = std::make_shared<TransformWindow>();
+			TransformWindow* window = new TransformWindow();
 			window->Init(*this);
 			Window::current->GetImGui().AddWindow(window);
 		}
