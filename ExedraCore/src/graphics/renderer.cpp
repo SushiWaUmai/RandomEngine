@@ -44,8 +44,8 @@ namespace exedra {
 			renderTexture.BindFB();
 			Clear();
 
-			for (auto& m : models)
-				m->Draw();
+			//for (auto& m : models)
+			//	m->Draw();
 
 			renderTexture.UnbindFB();
 		}

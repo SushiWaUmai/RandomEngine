@@ -6,19 +6,13 @@
 #include "mesh.h"
 #include "shader.h"
 #include "modeltexture.h"
-//#include "src/ecs/transform.h"
+#include "src/ecs/scene.h"
+#include <deque>
 
 namespace exedra {
-
-	namespace ecs { class ModelDrawer; }
-
 	namespace res {
 		class Model {
-			friend class ecs::ModelDrawer;
-
 		public:
-			//ecs::Transform transform;
-
 			Model() = default;
 			Model(const std::string& _path);
 			void Load(const std::string& _path);
@@ -26,8 +20,7 @@ namespace exedra {
 			Mesh ProcessMesh(aiMesh* _mesh, const aiScene* _scene);
 			std::vector<ModelTexture> LoadMaterialTextures(aiMaterial* _mat, aiTextureType _type, std::string _typeName);
 			static const std::string GetImportExtensions();
-
-			//void Draw();
+			std::vector<entt::entity> CreateEntities();
 
 		private:
 			std::vector<Mesh> meshes;

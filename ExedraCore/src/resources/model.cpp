@@ -2,6 +2,8 @@
 #include <assimp/postprocess.h>
 #include "src/logging/log.h"
 #include "src/graphics/window.h"
+#include "src/ecs/meshdrawer.h"
+#include "src/ecs/transform.h"
 
 namespace exedra {
 	namespace res {
@@ -104,6 +106,22 @@ namespace exedra {
 			std::string importExtensions;
 			modelImporter.GetExtensionList(importExtensions);
 			return importExtensions;
+		}
+
+		std::vector<entt::entity> Model::CreateEntities() {
+			using namespace ecs;
+			using namespace entt;
+			using namespace glm;
+
+			std::vector<entity> result;
+
+			for (Mesh m : meshes) {
+				entity id = Scene::current->AddEntity();
+				Scene::current->AddComponent<Transform>(id, mat4(1));
+				Scene::current->AddComponent<MeshDrawer>(id, m);
+				result.push_back(id);
+			}
+			return result;
 		}
 
 		//void Model::Draw() {

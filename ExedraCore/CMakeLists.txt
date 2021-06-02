@@ -69,27 +69,20 @@ set(SRC
     "src/gui/camerawindow.h"
     "src/gui/mainmenubar.cpp"
     "src/gui/mainmenubar.h"
-    
-    
     "src/gui/scenemanager.cpp"
     "src/gui/scenemanager.h"
 
 # ECS
-    "src/ecs/transform.cpp"
-    "src/ecs/transform.h"
-    "src/ecs/entity.cpp"
-    "src/ecs/entity.h"
-    "src/ecs/entity.tpp"
-    "src/ecs/component.cpp"
-    "src/ecs/component.h"
-    "src/ecs/modeldrawer.cpp"
-    "src/ecs/modeldrawer.h"
-    "src/ecs/drawer.cpp"
-    "src/ecs/drawer.h"
     "src/ecs/scene.cpp"
     "src/ecs/scene.h"
+    "src/ecs/drawer.cpp"
+    "src/ecs/drawer.h"
+    "src/ecs/meshdrawer.cpp"
+    "src/ecs/meshdrawer.h"
+    "src/ecs/transform.cpp"
+    "src/ecs/transform.h"
 
-     "src/gui/renderview.cpp" "src/gui/renderview.h" "src/gui/closablewindow.h" "src/gui/closablewindow.tpp")
+     "src/gui/renderview.cpp" "src/gui/renderview.h" "src/gui/closablewindow.h" "src/gui/closablewindow.tpp" )
 
 if(EXD_DYNAMIC_LINK)
     add_library(ExedraCore SHARED ${SRC})

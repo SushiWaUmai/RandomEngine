@@ -6,13 +6,18 @@ namespace exedra {
 
 		Scene::Scene() {
 			current = this;
-			root.Init("Scene Root");
 		}
 
-		Entity* Scene::CreateEntity() {
-			Entity* result = new Entity();
-			root.AddChild(result);
-			return result;
+		entt::entity Scene::AddEntity() {
+			return entityRegistry.create();
+		}
+
+		void Scene::RemoveEntity(entt::entity _id) {
+			entityRegistry.destroy(_id);
+		}
+
+		bool Scene::EntityIsValid(entt::entity _id) const {
+			return entityRegistry.valid(_id);
 		}
 	}
 }
