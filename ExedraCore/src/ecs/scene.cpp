@@ -8,11 +8,11 @@ namespace exedra {
 			current = this;
 		}
 
-		entt::entity Scene::AddEntity() {
+		Entity Scene::AddEntity() {
 			return entityRegistry.create();
 		}
 
-		void Scene::RemoveEntity(entt::entity _id) {
+		void Scene::RemoveEntity(Entity _id) {
 			entityRegistry.destroy(_id);
 		}
 

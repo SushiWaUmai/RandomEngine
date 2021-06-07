@@ -1,5 +1,6 @@
 #pragma once
 #include <entt/entt.hpp>
+#include "entity.h"
 
 namespace exedra {
 
@@ -12,8 +13,8 @@ namespace exedra {
 			static Scene* current;
 
 			Scene();
-			entt::entity AddEntity();
-			void RemoveEntity(entt::entity _id);
+			Entity AddEntity();
+			void RemoveEntity(Entity _id);
 			bool EntityIsValid(entt::entity _id) const;
 			template<typename T, typename... Args> T& AddComponent(entt::entity _id, Args &&... args);
 			template<typename T> T& GetComponent(entt::entity _id);

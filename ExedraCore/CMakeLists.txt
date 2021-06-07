@@ -77,12 +77,14 @@ set(SRC
     "src/ecs/scene.h"
     "src/ecs/drawer.cpp"
     "src/ecs/drawer.h"
-    "src/ecs/meshdrawer.cpp"
-    "src/ecs/meshdrawer.h"
+    
+    
     "src/ecs/transform.cpp"
     "src/ecs/transform.h"
+    "src/ecs/entity.tpp"
+    "src/ecs/entity.h"
 
-     "src/gui/renderview.cpp" "src/gui/renderview.h" "src/gui/closablewindow.h" "src/gui/closablewindow.tpp" )
+     "src/gui/renderview.cpp" "src/gui/renderview.h" "src/gui/closablewindow.h" "src/gui/closablewindow.tpp"   "src/ecs/entity.cpp" "src/ecs/system.cpp" "src/ecs/system.h")
 
 if(EXD_DYNAMIC_LINK)
     add_library(ExedraCore SHARED ${SRC})

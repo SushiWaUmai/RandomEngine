@@ -45,5 +45,4 @@
 //#include "src/ecs/entity.h"
 #include "src/ecs/drawer.h"
 #include "src/ecs/transform.h"
-#include "src/ecs/meshdrawer.h"
 #include "src/ecs/scene.h"

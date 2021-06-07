@@ -29,18 +29,10 @@ void Demo::Init(int _width, int _height, const std::string& _title) {
 
 
 		{
-			//Entity* cubeEntity = scene.CreateEntity();
-			//cubeEntity->Init("Cube");
 			std::string cubePath = projectPath + R"(\ExedraCore\assets\default\models\DefaultCube.fbx)";
-			//std::shared_ptr<Model> cube = std::make_shared<Model>(cubePath);
-			//std::shared_ptr<Transform> trasform = cubeEntity->AddComponent<Transform>();
-			//std::shared_ptr<ModelDrawer> drawer = cubeEntity->AddComponent<ModelDrawer>();
-			//drawer->SetModel(cube);
-			//Window::current->GetRenderer().AddDrawer(drawer);
-			//cubeEntity->GetComponent<Transform>()->Translate({ 0, 0, 5 });
 			Model cubeModel(cubePath);
-			std::vector<entt::entity> cubes = cubeModel.CreateEntities();
-			scene.GetComponent<Transform>(cubes[0]);
+			std::vector<Entity> cubes = cubeModel.CreateEntities();
+			Transform t = cubes[0].GetComponent<Transform>();
 		}
 
 		std::string whiteTexture = projectPath + R"(\ExedraCore\assets\default\textures\white_pixel.png)";

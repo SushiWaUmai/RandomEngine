@@ -20,7 +20,7 @@ namespace exedra {
 			Mesh ProcessMesh(aiMesh* _mesh, const aiScene* _scene);
 			std::vector<ModelTexture> LoadMaterialTextures(aiMaterial* _mat, aiTextureType _type, std::string _typeName);
 			static const std::string GetImportExtensions();
-			std::vector<entt::entity> CreateEntities();
+			std::vector<ecs::Entity> CreateEntities();
 
 		private:
 			std::vector<Mesh> meshes;

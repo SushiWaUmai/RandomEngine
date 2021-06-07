@@ -5,8 +5,6 @@
 #include "src/resources/modeltexture.h"
 #include "src/graphics/window.h"
 #include "src/gui/transformwindow.h"
-//#include "src/ecs/entity.h"
-#include "src/ecs/meshdrawer.h"
 #include "src/ecs/scene.h"
 
 namespace exedra {
@@ -23,20 +21,8 @@ namespace exedra {
             {
                 LOG_CORE_TRACE("Successfully opened file: {0}", outPath);
 
-                {
-                    using namespace res;
-                    using namespace graphics;
-                    using namespace ecs;
-
-
-                    Model loadedModel(outPath);
-                    loadedModel.CreateEntities();
-                    //Entity* e = Scene::current->CreateEntity();
-                    //e->AddComponent<Transform>();
-                    //std::shared_ptr<ModelDrawer> drawer = e->AddComponent<ModelDrawer>();
-                    //drawer->SetModel(loadedModel);
-                    //Window::current->GetRenderer().AddDrawer(drawer);
-                }
+                res::Model loadedModel(outPath);
+                loadedModel.CreateEntities();
 
                 NFD_FreePath(outPath);
             }

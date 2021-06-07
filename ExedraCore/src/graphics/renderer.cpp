@@ -45,7 +45,7 @@ namespace exedra {
 			Clear();
 
 			//for (auto& m : models)
-			//	m->Draw();
+				//m->Draw();
 
 			renderTexture.UnbindFB();
 		}
@@ -59,8 +59,8 @@ namespace exedra {
 			clearColor = _rgba;
 		}
 
-		void Renderer::AddDrawer(const std::shared_ptr<ecs::Drawer>& _model) {
-			models.push_back(_model);
+		void Renderer::AddDrawer(const std::shared_ptr<ecs::DrawerComponent>& _model) {
+			drawers.push_back(_model);
 		}
 	}
 }
