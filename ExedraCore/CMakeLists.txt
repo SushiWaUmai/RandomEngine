@@ -16,6 +16,8 @@ set(SRC
     "src/graphics/renderer.h"
     "src/graphics/camera.h"
     "src/graphics/camera.cpp"
+     "src/graphics/framework.cpp"
+     "src/graphics/framework.h"
 
 # Input
     "src/input/inputhandler.cpp"
@@ -69,8 +71,10 @@ set(SRC
     "src/gui/camerawindow.h"
     "src/gui/mainmenubar.cpp"
     "src/gui/mainmenubar.h"
-    
-    
+    "src/gui/renderview.cpp"
+    "src/gui/renderview.h"
+    "src/gui/closablewindow.h"
+    "src/gui/closablewindow.tpp"
     "src/gui/scenemanager.cpp"
     "src/gui/scenemanager.h"
 
@@ -89,7 +93,7 @@ set(SRC
     "src/ecs/scene.cpp"
     "src/ecs/scene.h"
 
-     "src/gui/renderview.cpp" "src/gui/renderview.h" "src/gui/closablewindow.h" "src/gui/closablewindow.tpp")
+     )
 
 if(EXD_DYNAMIC_LINK)
     add_library(ExedraCore SHARED ${SRC})
