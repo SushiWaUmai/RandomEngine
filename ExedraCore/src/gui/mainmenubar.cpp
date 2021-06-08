@@ -39,7 +39,7 @@ namespace exedra {
 
                     if (ImGui::BeginMenu("Create")) {
                         if (ImGui::MenuItem("Scene Manager")) {
-                            graphics::Window::current->GetImGui().AddWindow(new SceneManager());
+                            //graphics::Window::current->GetImGui().AddWindow(new SceneManager());
                         }
 
                         ImGui::EndMenu();

@@ -8,7 +8,7 @@ namespace exedra {
 		public:
 			void DrawImGui() override;
 		private:
-			void DrawEntityTree(ecs::Entity* _entity);
+			//void DrawEntityTree(ecs::Entity* _entity);
 		};
 	}
 }

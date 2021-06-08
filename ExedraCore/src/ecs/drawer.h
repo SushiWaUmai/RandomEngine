@@ -1,17 +1,19 @@
 #pragma once
-#include <memory>
-#include "component.h"
-#include "transform.h"
+#include "src/resources/mesh.h"
 
 namespace exedra {
 	namespace ecs {
-		class Drawer : public Component {
-		public:
-			using Component::Component;
-			virtual void Draw() = 0;
-			void Init() override;
-		protected:
-			std::weak_ptr<Transform> transform;
+		struct DrawerComponent {
+			DrawerComponent() = default;
+			DrawerComponent(res::Mesh _mesh) {
+				mesh = _mesh;
+			}
+
+			res::Mesh mesh;
+		};
+
+		class DrawerSystem {
+
 		};
 	}
 }

@@ -1,7 +1,6 @@
 #pragma once
+#include <entt/entt.hpp>
 #include "entity.h"
-#include <iostream>
-#include <memory>
 
 namespace exedra {
 
@@ -10,14 +9,19 @@ namespace exedra {
 	namespace ecs {
 		class Scene {
 			friend class gui::SceneManager;
-
 		public:
 			static Scene* current;
 
 			Scene();
-			Entity* CreateEntity();
+			Entity AddEntity();
+			void RemoveEntity(Entity _id);
+			bool EntityIsValid(entt::entity _id) const;
+			template<typename T, typename... Args> T& AddComponent(entt::entity _id, Args &&... args);
+			template<typename T> T& GetComponent(entt::entity _id);
 		private:
-			Entity root;
+			entt::registry entityRegistry;
 		};
 	}
 }
+
+#include "scene.tpp"
