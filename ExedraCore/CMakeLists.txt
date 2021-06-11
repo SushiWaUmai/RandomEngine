@@ -4,7 +4,6 @@ option(EXD_STATIC_LINK "Build the static library" on)
 set(SRC
 # Core
     "exedra.h"
-
     "src/core.h"
     "src/application.cpp"
     "src/application.h"
@@ -71,24 +70,25 @@ set(SRC
     "src/gui/camerawindow.h"
     "src/gui/mainmenubar.cpp"
     "src/gui/mainmenubar.h"
-    
-    
     "src/gui/scenemanager.cpp"
     "src/gui/scenemanager.h"
+    "src/gui/closablewindow.tpp"
+    "src/gui/closablewindow.h"
+     "src/gui/renderview.cpp"
+     "src/gui/renderview.h"
 
 # ECS
     "src/ecs/scene.cpp"
     "src/ecs/scene.h"
     "src/ecs/drawer.cpp"
     "src/ecs/drawer.h"
-    
-    
     "src/ecs/transform.cpp"
     "src/ecs/transform.h"
     "src/ecs/entity.tpp"
     "src/ecs/entity.h"
+    "src/ecs/entity.cpp"
 
-     "src/gui/renderview.cpp" "src/gui/renderview.h" "src/gui/closablewindow.h" "src/gui/closablewindow.tpp")
+      "src/resources/defaultres.h" "src/resources/defaultres.cpp" "src/ecs/camera.h")
 
 if(EXD_DYNAMIC_LINK)
     add_library(ExedraCore SHARED ${SRC})

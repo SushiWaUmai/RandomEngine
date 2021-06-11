@@ -1,19 +1,32 @@
 #pragma once
+#include "system.h"
 #include "src/resources/mesh.h"
+#include "src/resources/shader.h"
+#include "src/resources/defaultres.h"
+#include "src/logging/log.h"
 
 namespace exedra {
 	namespace ecs {
 		struct DrawerComponent {
 			DrawerComponent() = default;
-			DrawerComponent(res::Mesh _mesh) {
+			DrawerComponent(const res::Mesh& _mesh) {
 				mesh = _mesh;
+				shader = res::DefaultResources::defaultShader;
+			}
+
+			DrawerComponent(const res::Mesh& _mesh, const res::Shader& _shader) {
+				mesh = _mesh;
+				shader = _shader;
 			}
 
 			res::Mesh mesh;
+			res::Shader shader;
 		};
 
-		class DrawerSystem {
-
+		class DrawerSystem : public System {
+		public:
+			void Start() override;
+			void Update(const entt::registry& _registry) override;
 		};
 	}
 }

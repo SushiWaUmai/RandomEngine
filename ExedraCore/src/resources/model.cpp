@@ -116,10 +116,14 @@ namespace exedra {
 
 			for (Mesh m : meshes) {
 				Entity id = Scene::current->AddEntity();
-				id.AddComponent<Transform>();
+
+				id.AddComponent<TransformComponent>();
 				id.AddComponent<DrawerComponent>(m);
+
 				result.push_back(id);
 			}
+
+			LOG_CORE_TRACE("Created Entites from Model");
 			return result;
 		}
 	}

@@ -39,10 +39,11 @@
 #include "src/resources/rendertexture.h"
 
 // Utils
+#include "src/utils/fileloader.h"
 #include "src/utils/time.h"
 
 // Entity Component System (ECS)
-//#include "src/ecs/entity.h"
+#include "src/ecs/entity.h"
 #include "src/ecs/drawer.h"
 #include "src/ecs/transform.h"
 #include "src/ecs/scene.h"

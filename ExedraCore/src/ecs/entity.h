@@ -10,8 +10,8 @@ namespace exedra {
 
 			operator entt::entity ();
 
-			template<typename T, typename... Args> T AddComponent(Args &&... args);
-			template<typename T> T GetComponent();
+			template<typename T, typename... Args> T& AddComponent(Args &&... args);
+			template<typename T> T& GetComponent();
 		private:
 			entt::entity entityID;
 		};

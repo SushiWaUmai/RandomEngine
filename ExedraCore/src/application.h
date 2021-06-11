@@ -19,6 +19,7 @@ namespace exedra {
 		void InitGLAD() const;
 
 	protected:
+		std::string projectPath;
 		virtual void Update();
 	};
 }

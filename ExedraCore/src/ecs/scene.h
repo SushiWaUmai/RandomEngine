@@ -1,6 +1,10 @@
 #pragma once
 #include <entt/entt.hpp>
+#include <vector>
 #include "entity.h"
+#include "system.h"
+#include "transform.h"
+#include "drawer.h"
 
 namespace exedra {
 

@@ -1,12 +1,12 @@
 #pragma once
+#include <entt/entt.hpp>
 
 namespace exedra {
 	namespace ecs {
-		template<typename... T>
 		class System {
 		public:
-			void Start();
-			void Update();
+			virtual void Start();
+			virtual void Update(const entt::registry& _registry);
 		};
 	}
 }

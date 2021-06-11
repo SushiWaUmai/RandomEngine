@@ -13,6 +13,8 @@ namespace exedra {
 	namespace res {
 		class Model {
 		public:
+			std::vector<Mesh> meshes;
+
 			Model() = default;
 			Model(const std::string& _path);
 			void Load(const std::string& _path);
@@ -23,7 +25,6 @@ namespace exedra {
 			std::vector<ecs::Entity> CreateEntities();
 
 		private:
-			std::vector<Mesh> meshes;
 			std::vector<ModelTexture> textures;
 
 			static Assimp::Importer modelImporter;

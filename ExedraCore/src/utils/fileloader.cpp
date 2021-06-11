@@ -57,5 +57,23 @@ namespace exedra {
                 LOG_CORE_ERROR("Error while opening file: {0}", NFD_GetError());
             }
         }
+
+        std::string FileLoader::GetFolder() {
+            nfdchar_t* outPath;
+            nfdresult_t result = NFD_PickFolder(&outPath, NULL);
+            if (result == NFD_OKAY) {
+                LOG_CORE_TRACE("Successfully opened folder: {0}", outPath);
+                std::string result = std::string(outPath);
+                return result;
+            }
+            else if (result == NFD_CANCEL) {
+                LOG_CORE_TRACE("File Dialog Canceled");
+            }
+            else {
+                LOG_CORE_ERROR("Error while opening Folder: {0}", NFD_GetError());
+            }
+
+            return std::string();
+        }
 	}
 }

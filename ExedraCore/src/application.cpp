@@ -8,6 +8,8 @@
 #include "events/event.h"
 #include <functional>
 #include <nfd.h>
+#include "utils/fileloader.h"
+#include "src/resources/defaultres.h"
 
 namespace exedra {
 
@@ -29,6 +31,11 @@ namespace exedra {
 
 		LOG_CORE_TRACE("Initializing Native File Dialog...");
 		NFD_Init();
+
+
+		projectPath = utils::FileLoader::GetFolder();
+
+		res::DefaultResources::Init(projectPath);
 	}
 
 	void Application::Run() {

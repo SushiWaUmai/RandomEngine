@@ -1,4 +1,5 @@
 #include "entity.h"
+#include "src/logging/log.h"
 
 namespace exedra {
 	namespace ecs {

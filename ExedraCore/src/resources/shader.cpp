@@ -6,9 +6,6 @@
 
 namespace exedra {
 	namespace res {
-
-		Shader* Shader::current;
-
 		Shader::~Shader() {
 			glDeleteProgram(programID);
 		}
@@ -41,6 +38,8 @@ namespace exedra {
 			// Delete Shaders
 			glDeleteShader(vertexShader);
 			glDeleteShader(fragmentShader);
+
+			LOG_CORE_TRACE("Successfully Initialized Shader with path: {0}, {1}", _vertPath, _fragPath);
 		}
 
 		uint32_t Shader::CreateShader(uint32_t _shaderType, const char* _shaderSource) {
@@ -66,62 +65,60 @@ namespace exedra {
 			}
 		}
 
-		void Shader::UseShader() {
+		void Shader::UseShader() const {
 			glUseProgram(programID);
-			current = this;
 		}
 
 		void Shader::UnuseShader() {
 			glUseProgram(0);
-			current = nullptr;
 		}
 
-		void Shader::SetUniformInt(const std::string& _location, int _value) {
+		void Shader::SetUniformInt(const std::string& _location, int _value) const {
 			int _locID = GetUniformLocation(_location);
 			glUniform1i(_locID, _value);
 		}
 
-		void Shader::SetUniformBool(const std::string& _location, bool _value) {
+		void Shader::SetUniformBool(const std::string& _location, bool _value) const {
 			int _locID = GetUniformLocation(_location);
 			glUniform1i(_locID, _value);
 		}
 
-		void Shader::SetUniformFloat(const std::string& _location, float _value) {
+		void Shader::SetUniformFloat(const std::string& _location, float _value) const {
 			int _locID = GetUniformLocation(_location);
 			glUniform1f(_locID, _value);
 		}
 
-		void Shader::SetUniformVector(const std::string& _location, glm::vec2 _value) {
+		void Shader::SetUniformVector(const std::string& _location, glm::vec2 _value) const {
 			int _locID = GetUniformLocation(_location);
 			glUniform2fv(_locID, 1, &_value[0]);
 		}
 
-		void Shader::SetUniformVector(const std::string& _location, glm::vec3 _value) {
+		void Shader::SetUniformVector(const std::string& _location, glm::vec3 _value) const {
 			int _locID = GetUniformLocation(_location);
 			glUniform3fv(_locID, 1, &_value[0]);
 		}
 
-		void Shader::SetUniformVector(const std::string& _location, glm::vec4 _value) {
+		void Shader::SetUniformVector(const std::string& _location, glm::vec4 _value) const {
 			int _locID = GetUniformLocation(_location);
 			glUniform4fv(_locID, 1, &_value[0]);
 		}
 
-		void Shader::SetUniformMatrix(const std::string& _location, const glm::mat2& _value) {
+		void Shader::SetUniformMatrix(const std::string& _location, const glm::mat2& _value)  const {
 			int _locID = GetUniformLocation(_location);
 			glUniformMatrix2fv(_locID, 1, GL_FALSE, &_value[0][0]);
 		}
 
-		void Shader::SetUniformMatrix(const std::string& _location, const glm::mat3& _value) {
+		void Shader::SetUniformMatrix(const std::string& _location, const glm::mat3& _value) const {
 			int _locID = GetUniformLocation(_location);
 			glUniformMatrix3fv(_locID, 1, GL_FALSE, &_value[0][0]);
 		}
 
-		void Shader::SetUniformMatrix(const std::string& _location, const glm::mat4& _value) {
+		void Shader::SetUniformMatrix(const std::string& _location, const glm::mat4& _value) const {
 			int _locID = GetUniformLocation(_location);
 			glUniformMatrix4fv(_locID, 1, GL_FALSE, &_value[0][0]);
 		}
 
-		int Shader::GetUniformLocation(const std::string& _location) {
+		int Shader::GetUniformLocation(const std::string& _location) const {
 			glUseProgram(programID);
 
 			int _locID = glGetUniformLocation(programID, _location.c_str());

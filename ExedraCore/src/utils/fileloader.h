@@ -1,4 +1,5 @@
 #pragma once
+#include <string>
 
 namespace exedra {
 	namespace utils {
@@ -6,6 +7,7 @@ namespace exedra {
 		public:
 			static void Load3dObject();
 			static void LoadTexture();
+			static std::string GetFolder();
 		};
 	}
 }
