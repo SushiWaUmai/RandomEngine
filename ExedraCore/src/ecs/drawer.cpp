@@ -12,11 +12,12 @@ namespace exedra {
 		void DrawerSystem::Update(const entt::registry& _registry){
 			auto view = _registry.view<const DrawerComponent, const TransformComponent>();
 			view.each([](const DrawerComponent& drawer, const TransformComponent& transform) {
-				glm::vec3 lightDirection = glm::vec3(0.75f, -1, 0.5f);
-				drawer.shader.SetUniformVector("lightDirection", lightDirection);
+				drawer.shader.SetUniformVector("objectColor", { 1, 1, 1 });
+				drawer.shader.SetUniformVector("lightDirection", { 0.75f, -1, 0.5f });
 				drawer.shader.SetUniformMatrix("ViewProjectionMatrix", graphics::Camera::current->GetViewProjectionMatrix());
 				drawer.shader.SetUniformMatrix("ModelMatrix", transform.GetTransformMatrix());
 				drawer.shader.UseShader();
+				res::DefaultResources::defaultTexture.Bind();
 				drawer.mesh.Draw();
 			});
 		}

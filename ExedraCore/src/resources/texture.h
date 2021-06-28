@@ -8,7 +8,7 @@ namespace exedra {
 			Texture() = default;
 
 			void Init();
-			void Bind();
+			void Bind() const;
 			static void Unbind();
 
 			inline const int GetWidth() const { return width;  }

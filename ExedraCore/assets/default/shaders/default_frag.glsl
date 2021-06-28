@@ -11,7 +11,6 @@ in vec3 normal;
 
 void main()
 {
-
     vec4 texCol = texture(albedoTexture, TexCoord);
     float alpha = texCol.a;
     if (alpha < 0.1)

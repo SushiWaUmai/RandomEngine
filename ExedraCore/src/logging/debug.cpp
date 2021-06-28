@@ -31,7 +31,7 @@ namespace exedra {
 		void Debug::OpenGLInit() {
 
 			glDebugMessageCallback(OpenGLLogMessage, nullptr);
-
+				
 			LOG_CORE_TRACE("OpenGL Debug Message Callback Initialized");
 		}
 

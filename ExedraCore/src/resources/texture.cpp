@@ -26,7 +26,7 @@ namespace exedra {
 			Unbind();
 		}
 
-		void Texture::Bind() {
+		void Texture::Bind() const {
 			glBindTexture(GL_TEXTURE_2D, textureID);
 		}
 

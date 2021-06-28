@@ -20,7 +20,6 @@ void Demo::Init(int _width, int _height, const std::string& _title) {
 		using namespace ecs;
 		using namespace utils;
 
-
 		{
 			std::string cubePath = projectPath + R"(\ExedraCore\assets\default\models\DefaultCube.fbx)";
 			Model cubeModel(cubePath);
