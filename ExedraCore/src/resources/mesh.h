@@ -2,7 +2,6 @@
 #include <iostream>
 #include <glm/glm.hpp>
 #include <vector>
-//#include "src/resources/texture.h"
 
 namespace exedra {
 	namespace res {
@@ -28,7 +27,6 @@ namespace exedra {
 
 			std::vector<Vertex> vertices;
 			std::vector<uint32_t> indices;
-			//std::vector<Texture> textures;
 		};
 	}
 }

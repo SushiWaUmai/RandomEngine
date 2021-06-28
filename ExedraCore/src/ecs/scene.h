@@ -3,8 +3,9 @@
 #include <vector>
 #include "entity.h"
 #include "system.h"
-#include "transform.h"
 #include "drawer.h"
+#include "transform.h"
+#include <memory>
 
 namespace exedra {
 
@@ -21,8 +22,14 @@ namespace exedra {
 			void RemoveEntity(Entity _id);
 			bool EntityIsValid(entt::entity _id) const;
 			template<typename T, typename... Args> T& AddComponent(entt::entity _id, Args &&... args);
+			void Update();
+			void UpdateDrawer();
 			template<typename T> T& GetComponent(entt::entity _id);
+			template<typename T> bool HasComponent(entt::entity _id);
+			template<typename T> void RemoveComponent(entt::entity _id);
 		private:
+			std::unique_ptr<DrawerSystem> drawerSystem;
+			//std::vector<std::unique_ptr<System>> systems;
 			entt::registry entityRegistry;
 		};
 	}

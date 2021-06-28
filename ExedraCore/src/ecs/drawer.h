@@ -14,7 +14,7 @@ namespace exedra {
 				shader = res::DefaultResources::defaultShader;
 			}
 
-			DrawerComponent(const res::Mesh& _mesh, const res::Shader& _shader) {
+			DrawerComponent(const res::Mesh& _mesh, res::Shader& _shader) {
 				mesh = _mesh;
 				shader = _shader;
 			}
@@ -25,6 +25,10 @@ namespace exedra {
 
 		class DrawerSystem : public System {
 		public:
+			DrawerSystem() = default;
+			DrawerSystem(const DrawerSystem& cpy) = default;
+			DrawerSystem(DrawerSystem&& cpy) = default;
+
 			void Start() override;
 			void Update(const entt::registry& _registry) override;
 		};

@@ -12,6 +12,8 @@ namespace exedra {
 
 			template<typename T, typename... Args> T& AddComponent(Args &&... args);
 			template<typename T> T& GetComponent();
+			template<typename T> bool HasComponent();
+			template<typename T> void RemoveComponent();
 		private:
 			entt::entity entityID;
 		};

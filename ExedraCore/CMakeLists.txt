@@ -29,6 +29,14 @@ set(SRC
     "src/resources/mesh.cpp"
     "src/resources/model.cpp"
     "src/resources/model.h"
+    "src/resources/texture.cpp"
+    "src/resources/texture.h"
+    "src/resources/modeltexture.cpp"
+    "src/resources/modeltexture.h"
+    "src/resources/rendertexture.cpp"
+    "src/resources/rendertexture.h"
+    "src/resources/defaultres.h"
+    "src/resources/defaultres.cpp"
 
 # Utils
     "src/utils/filereader.cpp"
@@ -48,12 +56,6 @@ set(SRC
     "src/events/eventdispatcher.h"
     "src/events/event.cpp"
     "src/events/event.h"
-    "src/resources/texture.cpp"
-    "src/resources/texture.h"
-    "src/resources/modeltexture.cpp"
-    "src/resources/modeltexture.h"
-    "src/resources/rendertexture.cpp"
-    "src/resources/rendertexture.h"
 
 # GUI
     "src/gui/imguiwindow.cpp"
@@ -78,6 +80,8 @@ set(SRC
      "src/gui/renderview.h"
 
 # ECS
+    "src/ecs/system.cpp"
+    "src/ecs/system.h"
     "src/ecs/scene.cpp"
     "src/ecs/scene.h"
     "src/ecs/drawer.cpp"
@@ -88,7 +92,7 @@ set(SRC
     "src/ecs/entity.h"
     "src/ecs/entity.cpp"
 
-      "src/resources/defaultres.h" "src/resources/defaultres.cpp" "src/ecs/camera.h")
+    "src/ecs/camera.h")
 
 if(EXD_DYNAMIC_LINK)
     add_library(ExedraCore SHARED ${SRC})

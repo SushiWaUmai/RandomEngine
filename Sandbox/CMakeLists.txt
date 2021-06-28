@@ -1,8 +1,8 @@
 message(${CMAKE_CURRENT_SOURCE_DIR}/main.cpp)
 
-add_executable(Sandbox 
+add_executable(Sandbox
     "main.cpp"
-    "Demo.h"    
+    "Demo.h"
     "Demo.cpp"
     )
 

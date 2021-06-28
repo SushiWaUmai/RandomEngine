@@ -46,6 +46,7 @@ namespace exedra {
 
 	void Application::Update() {
 		window.Update();
+		ecs::Scene::current->Update();
 	}
 
 	void Application::InitGLFW() const {

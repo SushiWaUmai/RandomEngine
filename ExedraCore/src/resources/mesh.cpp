@@ -1,4 +1,5 @@
 #include "mesh.h"
+#include "src/logging/log.h"
 #include <glad/glad.h>
 
 namespace exedra {

@@ -11,5 +11,15 @@ namespace exedra {
 		T& Scene::GetComponent(entt::entity _id) {
 			return entityRegistry.get<T>(_id);
 		}
+
+		template<typename T>
+		bool Scene::HasComponent(entt::entity _id) {
+			return entityRegistry.has<T>(_id);
+		}
+
+		template<typename T>
+		void Scene::RemoveComponent(entt::entity _id) {
+			entityRegistry.remove<T>(_id);
+		}
 	}
 }

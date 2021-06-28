@@ -7,10 +7,7 @@
 void Demo::Init(int _width, int _height, const std::string& _title) {
 	Application::Init(_width, _height, _title);
 
-	//std::string projectPath = R"(C:\Users\eugen\Coding\C++\Projects\Exedra)";
-	//std::string projectPath = R"(F:\Coding\C++\Projects\Exedra)";
 	//glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
-
 	//GetInput().SetCursorInput(GLFW_CURSOR_DISABLED);
 
 
@@ -24,20 +21,15 @@ void Demo::Init(int _width, int _height, const std::string& _title) {
 		using namespace utils;
 
 
-
 		{
 			std::string cubePath = projectPath + R"(\ExedraCore\assets\default\models\DefaultCube.fbx)";
 			Model cubeModel(cubePath);
 			std::vector<Entity> cubes = cubeModel.CreateEntities();
-			//Transform t = cubes[0].GetComponent<Transform>();
+			TransformComponent& t = cubes[0].GetComponent<TransformComponent>();
+			t.position = { 0, 0, 10 };
 		}
 
-
 		Window::current->GetRenderer().SetClearColor({ 21.0/255, 32.0/255, 43.0/255, 1 });
-
-		//std::string grassTexture = R"(D:\Downloads\grass.png)";
-		//Texture grassTex(grassTexture, aiTextureType_DIFFUSE);
-		//grassTex.Bind();
 	}
 }
 
