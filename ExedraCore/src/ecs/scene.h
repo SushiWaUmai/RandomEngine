@@ -28,7 +28,6 @@ namespace exedra {
 			template<typename T> bool HasComponent(entt::entity _id);
 			template<typename T> void RemoveComponent(entt::entity _id);
 		private:
-			std::unique_ptr<DrawerSystem> drawerSystem;
 			std::vector<std::unique_ptr<ComponentSystem>> componentSystems;
 			entt::registry entityRegistry;
 		};

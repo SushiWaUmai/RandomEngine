@@ -13,10 +13,8 @@ set(SRC
     "src/graphics/window.h"
     "src/graphics/renderer.cpp"
     "src/graphics/renderer.h"
-    "src/graphics/camera.h"
-    "src/graphics/camera.cpp"
-     "src/graphics/framework.cpp"
-     "src/graphics/framework.h"
+    "src/graphics/framework.cpp"
+    "src/graphics/framework.h"
 
 # Input
     "src/input/inputhandler.cpp"
@@ -68,31 +66,32 @@ set(SRC
     "src/gui/dockspacewindow.h"
     "src/gui/transformwindow.cpp"
     "src/gui/transformwindow.h"
-    "src/gui/camerawindow.cpp"
-    "src/gui/camerawindow.h"
     "src/gui/mainmenubar.cpp"
     "src/gui/mainmenubar.h"
     "src/gui/scenemanager.cpp"
     "src/gui/scenemanager.h"
-    "src/gui/closablewindow.tpp"
+    "src/gui/closablewindow.cpp"
     "src/gui/closablewindow.h"
-     "src/gui/renderview.cpp"
-     "src/gui/renderview.h"
+    "src/gui/closablewindow.tpp"
+    "src/gui/renderview.cpp"
+    "src/gui/renderview.h"
 
 # ECS
     "src/ecs/componentsystem.cpp"
     "src/ecs/componentsystem.h"
     "src/ecs/scene.cpp"
     "src/ecs/scene.h"
-    "src/ecs/drawer.cpp"
     "src/ecs/drawer.h"
     "src/ecs/transform.cpp"
     "src/ecs/transform.h"
     "src/ecs/entity.tpp"
     "src/ecs/entity.h"
     "src/ecs/entity.cpp"
-
-    "src/ecs/camera.h" "src/ecs/cameramovement.h" "src/ecs/cameramovement.cpp")
+    "src/ecs/camera.cpp"
+    "src/ecs/camera.h"
+    "src/ecs/cameramovement.cpp"
+    "src/ecs/cameramovement.h"
+    )
 
 if(EXD_DYNAMIC_LINK)
     add_library(ExedraCore SHARED ${SRC})
@@ -102,7 +101,7 @@ if(EXD_DYNAMIC_LINK)
         "${CMAKE_BINARY_DIR}/bin/ExedraCore-$<CONFIGURATION>/ExedraCore-$<CONFIGURATION>.dll"
         "${CMAKE_BINARY_DIR}/bin/Sandbox-$<CONFIGURATION>/ExedraCore-$<CONFIGURATION>.dll")
 elseif(EXD_STATIC_LINK)
-    add_library(ExedraCore STATIC ${SRC} "src/gui/closablewindow.cpp" "src/ecs/camera.cpp")
+    add_library(ExedraCore STATIC ${SRC})
 endif()
 
 target_compile_definitions(ExedraCore PUBLIC

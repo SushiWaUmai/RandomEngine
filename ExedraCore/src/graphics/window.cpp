@@ -47,8 +47,6 @@ namespace exedra {
 			//glfwWindowHint(GLFW_MAXIMIZED, GL_TRUE);
 
 			current = this;
-
-			Camera::current->screenRatio = (float)width / height;
 		}
 
 		// Initializes the GLFW window and the input handler
@@ -83,7 +81,6 @@ namespace exedra {
 
 		void Window::Update() {
 			if (!iconified) {
-				renderer.Draw();
 				imguiHandler.Draw();
 
 				glfwSwapBuffers(window);

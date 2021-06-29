@@ -30,7 +30,6 @@
 #include "src/gui/transformwindow.h"
 
 // Graphics
-#include "src/graphics/camera.h"
 #include "src/graphics/window.h"
 
 // Resources

@@ -2,7 +2,6 @@
 #include "renderer.h"
 #include "src/resources/shader.h"
 #include "src/resources/model.h"
-#include "src/gui/camerawindow.h"
 #include "src/gui/renderview.h"
 #include <memory>
 
@@ -21,41 +20,14 @@ namespace exedra {
 			//glEnable(GL_BLEND);
 			//glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
-			//cam.Init(60, 5, 1);
-			//gui::CameraWindow* camWindow = new gui::CameraWindow();
-			//camWindow->Init(cam);
-			//graphics::Window::current->GetImGui().AddWindow(camWindow);
-
-			//LOG_CORE_TRACE("Camera created.");
-
 			//renderTexture.Init(1, 1);
 			//gui::RenderView* renderWindow = new gui::RenderView();
 			//renderWindow->Init(renderTexture);
 			//graphics::Window::current->GetImGui().AddWindow(renderWindow);
 
 			//LOG_CORE_TRACE("Render window created.");
-			//LOG_CORE_TRACE("Renderer initialized successfully.");
+			LOG_CORE_TRACE("Renderer initialized successfully.");
 
-		}
-
-		void Renderer::Draw() {
-
-			//cam.Update();
-			//renderTexture.BindFB();
-			//Clear();
-
-			//ecs::Scene::current->UpdateDrawer();
-
-			//renderTexture.UnbindFB();
-		}
-
-		void Renderer::Clear() {
-			glClearColor(clearColor.r, clearColor.g, clearColor.b, clearColor.a);
-			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-		}
-
-		void Renderer::SetClearColor(glm::vec4 _rgba) {
-			clearColor = _rgba;
 		}
 	}
 }

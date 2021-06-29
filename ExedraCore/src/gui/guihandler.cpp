@@ -5,7 +5,6 @@
 #include "backends/imgui_impl_opengl3.h"
 #include "src/logging/log.h"
 #include "dockspacewindow.h"
-#include "camerawindow.h"
 #include "mainmenubar.h"
 #include "scenemanager.h"
 #include "src/graphics/window.h"

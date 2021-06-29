@@ -5,7 +5,6 @@
 #include "src/gui/renderview.h"
 #include <entt/entt.hpp>
 #include <glad/glad.h>
-#include "src/graphics/camera.h"
 
 namespace exedra {
 	namespace ecs {
@@ -25,8 +24,6 @@ namespace exedra {
 				gui::RenderView* renderWindow = new gui::RenderView();
 				renderWindow->Init(targetTexture);
 				graphics::Window::current->GetImGui().AddWindow(renderWindow);
-
-				//LOG_CORE_DEBUG("Create Camera");
 			}
 
 			glm::mat4 GetViewMatrix(const TransformComponent& _transform) const {
@@ -35,8 +32,7 @@ namespace exedra {
 			}
 
 			glm::mat4 GetProjectionMatrix() const {
-				//float screenRatio = (float)targetTexture.GetWidth() / targetTexture.GetHeight();
-				float screenRatio = graphics::Camera::current->screenRatio;
+				float screenRatio = (float)targetTexture.GetWidth() / targetTexture.GetHeight();
 				return glm::perspective(glm::radians(fov), screenRatio, nearClipPlane, farClipPlane);
 			}
 

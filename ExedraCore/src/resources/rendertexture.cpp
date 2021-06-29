@@ -1,7 +1,6 @@
 #include "rendertexture.h"
 #include "glad/glad.h"
 #include "src/logging/log.h"
-#include "src/graphics/camera.h"
 #include "src/ecs/camera.h"
 
 namespace exedra {
@@ -55,7 +54,6 @@ namespace exedra {
 			Unbind();
 
 			glViewport(0, 0, width, height);
-			graphics::Camera::current->screenRatio = (float)width / height;
 
 		}
 

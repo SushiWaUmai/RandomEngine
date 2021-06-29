@@ -1,13 +1,11 @@
 #include "camera.h"
 #include "drawer.h"
 #include "transform.h"
-#include <glm/ext.hpp>
-#include <glm/gtx/string_cast.hpp>
 
 namespace exedra {
 	namespace ecs {
 		void CameraSystem::Start() {
-
+			LOG_CORE_DEBUG("Create Camera System");
 		}
 
 		void CameraSystem::Update(entt::registry& _registry) {
