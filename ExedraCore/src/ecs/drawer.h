@@ -23,7 +23,7 @@ namespace exedra {
 			res::Shader shader;
 		};
 
-		class DrawerSystem : public System {
+		class DrawerSystem : public ComponentSystem {
 		public:
 			DrawerSystem() = default;
 			DrawerSystem(const DrawerSystem& cpy) = default;

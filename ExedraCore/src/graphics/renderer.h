@@ -20,12 +20,10 @@ namespace exedra {
 			void Clear();
 			void Draw();
 			void SetClearColor(glm::vec4 _rgba);
-			void AddDrawer(const std::shared_ptr<ecs::DrawerComponent>& _model);
 		private:
 			Camera cam;
 			glm::vec4 clearColor;
 			res::RenderTexture renderTexture;
-			std::vector<std::shared_ptr<ecs::DrawerComponent>> drawers;
 		};
 	}
 }

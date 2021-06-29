@@ -18,18 +18,18 @@ namespace exedra {
 			static Scene* current;
 
 			Scene();
+			void Init();
 			Entity AddEntity();
 			void RemoveEntity(Entity _id);
 			bool EntityIsValid(entt::entity _id) const;
 			template<typename T, typename... Args> T& AddComponent(entt::entity _id, Args &&... args);
 			void Update();
-			void UpdateDrawer();
 			template<typename T> T& GetComponent(entt::entity _id);
 			template<typename T> bool HasComponent(entt::entity _id);
 			template<typename T> void RemoveComponent(entt::entity _id);
 		private:
 			std::unique_ptr<DrawerSystem> drawerSystem;
-			//std::vector<std::unique_ptr<System>> systems;
+			std::vector<std::unique_ptr<ComponentSystem>> componentSystems;
 			entt::registry entityRegistry;
 		};
 	}

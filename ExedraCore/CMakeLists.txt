@@ -102,7 +102,7 @@ if(EXD_DYNAMIC_LINK)
         "${CMAKE_BINARY_DIR}/bin/ExedraCore-$<CONFIGURATION>/ExedraCore-$<CONFIGURATION>.dll"
         "${CMAKE_BINARY_DIR}/bin/Sandbox-$<CONFIGURATION>/ExedraCore-$<CONFIGURATION>.dll")
 elseif(EXD_STATIC_LINK)
-    add_library(ExedraCore STATIC ${SRC} "src/gui/closablewindow.cpp")
+    add_library(ExedraCore STATIC ${SRC} "src/gui/closablewindow.cpp" "src/ecs/camera.cpp")
 endif()
 
 target_compile_definitions(ExedraCore PUBLIC

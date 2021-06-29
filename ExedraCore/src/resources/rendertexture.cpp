@@ -2,6 +2,7 @@
 #include "glad/glad.h"
 #include "src/logging/log.h"
 #include "src/graphics/camera.h"
+#include "src/ecs/camera.h"
 
 namespace exedra {
 	namespace res {
@@ -58,11 +59,11 @@ namespace exedra {
 
 		}
 
-		void RenderTexture::BindFB() {
+		void RenderTexture::BindFB() const {
 			glBindFramebuffer(GL_FRAMEBUFFER, fbo);
 		}
 
-		void RenderTexture::BindRB() {
+		void RenderTexture::BindRB() const {
 			glBindRenderbuffer(GL_RENDERBUFFER, rbo);
 		}
 

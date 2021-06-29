@@ -1,5 +1,6 @@
 #include "scene.h"
 #include "drawer.h"
+#include "camera.h"
 
 namespace exedra {
 	namespace ecs {
@@ -8,9 +9,18 @@ namespace exedra {
 		Scene::Scene() {
 			current = this;
 
-			drawerSystem = std::make_unique<DrawerSystem>();
+			std::unique_ptr<ComponentSystem> cameraSystem = std::make_unique<CameraSystem>();
+			componentSystems.push_back(std::move(cameraSystem));
+
+			//drawerSystem = std::make_unique<DrawerSystem>();
 			//std::unique_ptr<System> drawer = std::make_unique<DrawerSystem>();
 			//systems.push_back(std::move(drawer));
+		}
+
+		void Scene::Init() {
+			Entity e = AddEntity();
+			e.AddComponent<TransformComponent>();
+			e.AddComponent<CameraComponent>(60, 0.1, 100);
 		}
 
 		Entity Scene::AddEntity() {
@@ -26,13 +36,9 @@ namespace exedra {
 		}
 
 		void Scene::Update() {
-			//for (uint32_t i = 0; i < systems.size(); i++) {
-			//	systems[i]->Update(entityRegistry);
-			//}
-		}
-
-		void Scene::UpdateDrawer() {
-			drawerSystem->Update(entityRegistry);
+			for (uint32_t i = 0; i < componentSystems.size(); i++) {
+				componentSystems[i]->Update(entityRegistry);
+			}
 		}
 	}
 }

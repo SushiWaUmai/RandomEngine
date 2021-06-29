@@ -7,6 +7,8 @@
 void Demo::Init(int _width, int _height, const std::string& _title) {
 	Application::Init(_width, _height, _title);
 
+	scene.Init();
+
 	//glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 	//GetInput().SetCursorInput(GLFW_CURSOR_DISABLED);
 
@@ -28,7 +30,7 @@ void Demo::Init(int _width, int _height, const std::string& _title) {
 			t.position = { 0, 0, 10 };
 		}
 
-		Window::current->GetRenderer().SetClearColor({ 21.0/255, 32.0/255, 43.0/255, 1 });
+		//Window::current->GetRenderer().SetClearColor({ 21.0/255, 32.0/255, 43.0/255, 1 });
 	}
 }
 

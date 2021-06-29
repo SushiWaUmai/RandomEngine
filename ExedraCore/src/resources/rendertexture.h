@@ -11,8 +11,8 @@ namespace exedra {
 
 			void Resize(int _width, int _height);
 
-			void BindFB();
-			void BindRB();
+			void BindFB() const;
+			void BindRB() const;
 			static void UnbindFB();
 			static void UnbindRB();
 

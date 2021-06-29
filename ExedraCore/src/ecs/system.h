@@ -3,7 +3,7 @@
 
 namespace exedra {
 	namespace ecs {
-		class System {
+		class ComponentSystem {
 		public:
 			virtual void Start();
 			virtual void Update(const entt::registry& _registry);

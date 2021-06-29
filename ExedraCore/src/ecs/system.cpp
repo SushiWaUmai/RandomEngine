@@ -3,10 +3,10 @@
 
 namespace exedra {
 	namespace ecs {
-		void System::Start() {
+		void ComponentSystem::Start() {
 		}
 
-		void System::Update(const entt::registry& _registry) {
+		void ComponentSystem::Update(const entt::registry& _registry) {
 
 		}
 	}

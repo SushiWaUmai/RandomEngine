@@ -21,32 +21,32 @@ namespace exedra {
 			//glEnable(GL_BLEND);
 			//glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
-			cam.Init(60, 5, 1);
-			gui::CameraWindow* camWindow = new gui::CameraWindow();
-			camWindow->Init(cam);
-			graphics::Window::current->GetImGui().AddWindow(camWindow);
+			//cam.Init(60, 5, 1);
+			//gui::CameraWindow* camWindow = new gui::CameraWindow();
+			//camWindow->Init(cam);
+			//graphics::Window::current->GetImGui().AddWindow(camWindow);
 
-			LOG_CORE_TRACE("Camera created.");
+			//LOG_CORE_TRACE("Camera created.");
 
-			renderTexture.Init(1, 1);
-			gui::RenderView* renderWindow = new gui::RenderView();
-			renderWindow->Init(renderTexture);
-			graphics::Window::current->GetImGui().AddWindow(renderWindow);
+			//renderTexture.Init(1, 1);
+			//gui::RenderView* renderWindow = new gui::RenderView();
+			//renderWindow->Init(renderTexture);
+			//graphics::Window::current->GetImGui().AddWindow(renderWindow);
 
-			LOG_CORE_TRACE("Render window created.");
+			//LOG_CORE_TRACE("Render window created.");
+			//LOG_CORE_TRACE("Renderer initialized successfully.");
 
-			LOG_CORE_TRACE("Renderer initialized successfully.");
 		}
 
 		void Renderer::Draw() {
 
-			cam.Update();
-			renderTexture.BindFB();
-			Clear();
+			//cam.Update();
+			//renderTexture.BindFB();
+			//Clear();
 
-			ecs::Scene::current->UpdateDrawer();
+			//ecs::Scene::current->UpdateDrawer();
 
-			renderTexture.UnbindFB();
+			//renderTexture.UnbindFB();
 		}
 
 		void Renderer::Clear() {
@@ -56,10 +56,6 @@ namespace exedra {
 
 		void Renderer::SetClearColor(glm::vec4 _rgba) {
 			clearColor = _rgba;
-		}
-
-		void Renderer::AddDrawer(const std::shared_ptr<ecs::DrawerComponent>& _model) {
-			drawers.push_back(_model);
 		}
 	}
 }

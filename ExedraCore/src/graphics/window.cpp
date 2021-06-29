@@ -5,6 +5,7 @@
 #include "src/input/inputhandler.h"
 #include "src/logging/log.h"
 #include "src/events/event.h"
+#include "src/ecs/camera.h"
 
 namespace exedra {
 	namespace graphics {
