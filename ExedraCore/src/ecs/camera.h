@@ -1,14 +1,18 @@
 #pragma once
 #include "transform.h"
-#include "system.h"
+#include "componentsystem.h"
 #include "src/resources/rendertexture.h"
 #include "src/gui/renderview.h"
 #include <entt/entt.hpp>
 #include <glad/glad.h>
+#include "src/graphics/camera.h"
 
 namespace exedra {
 	namespace ecs {
 		struct CameraComponent {
+			CameraComponent()
+				: fov(60), nearClipPlane(0.1), farClipPlane(100.0f) {}
+
 			CameraComponent(float _fov, float _nearClipPlane, float _farClipPlane) {
 				fov = _fov;
 				nearClipPlane = _nearClipPlane;
@@ -21,15 +25,18 @@ namespace exedra {
 				gui::RenderView* renderWindow = new gui::RenderView();
 				renderWindow->Init(targetTexture);
 				graphics::Window::current->GetImGui().AddWindow(renderWindow);
+
+				//LOG_CORE_DEBUG("Create Camera");
 			}
 
 			glm::mat4 GetViewMatrix(const TransformComponent& _transform) const {
-				glm::vec3 lookDirection = glm::vec4(0, 0, 1, 0) * glm::toMat4(_transform.rotation);
+				glm::vec3 lookDirection = glm::toMat4(_transform.rotation) * glm::vec4(0, 0, 1, 0);
 				return glm::lookAt(_transform.position, lookDirection + _transform.position, { 0, 1, 0 });
 			}
 
 			glm::mat4 GetProjectionMatrix() const {
-				float screenRatio = (float)targetTexture.GetWidth() / targetTexture.GetHeight();
+				//float screenRatio = (float)targetTexture.GetWidth() / targetTexture.GetHeight();
+				float screenRatio = graphics::Camera::current->screenRatio;
 				return glm::perspective(glm::radians(fov), screenRatio, nearClipPlane, farClipPlane);
 			}
 
@@ -66,7 +73,7 @@ namespace exedra {
 		class CameraSystem : public ComponentSystem {
 		public:
 			void Start() override;
-			void Update(const entt::registry& _registry) override;
+			void Update(entt::registry& _registry) override;
 		};
 	}
 }

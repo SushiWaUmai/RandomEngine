@@ -80,8 +80,8 @@ set(SRC
      "src/gui/renderview.h"
 
 # ECS
-    "src/ecs/system.cpp"
-    "src/ecs/system.h"
+    "src/ecs/componentsystem.cpp"
+    "src/ecs/componentsystem.h"
     "src/ecs/scene.cpp"
     "src/ecs/scene.h"
     "src/ecs/drawer.cpp"
@@ -92,7 +92,7 @@ set(SRC
     "src/ecs/entity.h"
     "src/ecs/entity.cpp"
 
-    "src/ecs/camera.h")
+    "src/ecs/camera.h" "src/ecs/cameramovement.h" "src/ecs/cameramovement.cpp")
 
 if(EXD_DYNAMIC_LINK)
     add_library(ExedraCore SHARED ${SRC})

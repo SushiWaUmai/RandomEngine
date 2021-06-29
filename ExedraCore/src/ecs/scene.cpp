@@ -1,6 +1,7 @@
 #include "scene.h"
 #include "drawer.h"
 #include "camera.h"
+#include "cameramovement.h"
 
 namespace exedra {
 	namespace ecs {
@@ -12,14 +13,15 @@ namespace exedra {
 			std::unique_ptr<ComponentSystem> cameraSystem = std::make_unique<CameraSystem>();
 			componentSystems.push_back(std::move(cameraSystem));
 
-			//drawerSystem = std::make_unique<DrawerSystem>();
-			//std::unique_ptr<System> drawer = std::make_unique<DrawerSystem>();
-			//systems.push_back(std::move(drawer));
+			std::unique_ptr<CameraMovementSystem> cameraMovementSystem = std::make_unique<CameraMovementSystem>();
+			componentSystems.push_back(std::move(cameraMovementSystem));
 		}
 
 		void Scene::Init() {
 			Entity e = AddEntity();
-			e.AddComponent<TransformComponent>();
+			e.AddComponent<CameraMovementComponent>();
+			TransformComponent& transform = e.AddComponent<TransformComponent>();
+			//transform.position = { 0, 1, -10 };
 			e.AddComponent<CameraComponent>(60, 0.1, 100);
 		}
 

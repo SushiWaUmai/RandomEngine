@@ -1,6 +1,8 @@
 #include "camera.h"
 #include "drawer.h"
 #include "transform.h"
+#include <glm/ext.hpp>
+#include <glm/gtx/string_cast.hpp>
 
 namespace exedra {
 	namespace ecs {
@@ -8,9 +10,9 @@ namespace exedra {
 
 		}
 
-		void CameraSystem::Update(const entt::registry& _registry) {
+		void CameraSystem::Update(entt::registry& _registry) {
 			auto view = _registry.view<const CameraComponent, const TransformComponent>();
-			view.each([&](const CameraComponent cam, const TransformComponent camTransform) {
+			view.each([&](const CameraComponent& cam, const TransformComponent& camTransform) {
 
 				cam.Bind();
 				cam.Clear();
@@ -20,13 +22,17 @@ namespace exedra {
 
 					// Drawer Shader
 					drawer.shader.UseShader();
-					drawer.shader.SetUniformVector("objectColor", { 1, 1, 1 });
+					drawer.shader.SetUniformVector("objectColor", { 1, 1, 0 });
 					drawer.shader.SetUniformVector("lightDirection", { 0.75f, -1, 0.5f });
-					drawer.shader.SetUniformMatrix("ViewProjectionMatrix", cam.GetViewProjectionMatrix(transform));
+					drawer.shader.SetUniformMatrix("ViewProjectionMatrix", cam.GetViewProjectionMatrix(camTransform));
 					drawer.shader.SetUniformMatrix("ModelMatrix", transform.GetTransformMatrix());
 
+					// Bind Texture
 					res::DefaultResources::defaultTexture.Bind();
 					drawer.mesh.Draw();
+
+					res::Texture::Unbind();
+					res::Shader::UnuseShader();
 				});
 
 				cam.Unbind();

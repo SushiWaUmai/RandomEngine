@@ -3,6 +3,7 @@
 #include "window.h"
 #include "src/utils/time.h"
 #include <cmath>
+#include <glm/gtx/string_cast.hpp>
 
 namespace exedra {
 	namespace graphics {

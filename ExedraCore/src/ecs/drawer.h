@@ -1,5 +1,5 @@
 #pragma once
-#include "system.h"
+#include "componentsystem.h"
 #include "src/resources/mesh.h"
 #include "src/resources/shader.h"
 #include "src/resources/defaultres.h"
@@ -30,7 +30,7 @@ namespace exedra {
 			DrawerSystem(DrawerSystem&& cpy) = default;
 
 			void Start() override;
-			void Update(const entt::registry& _registry) override;
+			void Update(entt::registry& _registry) override;
 		};
 	}
 }

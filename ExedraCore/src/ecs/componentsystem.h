@@ -6,7 +6,7 @@ namespace exedra {
 		class ComponentSystem {
 		public:
 			virtual void Start();
-			virtual void Update(const entt::registry& _registry);
+			virtual void Update(entt::registry& _registry);
 		};
 	}
 }
