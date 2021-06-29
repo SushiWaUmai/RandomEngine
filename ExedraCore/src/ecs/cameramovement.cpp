@@ -45,10 +45,10 @@ namespace exedra {
 
 					camTransform.position += glm::vec3(addVector.x, addVector.y, addVector.z);
 
-					//camTransform.rotation = glm::quat(glm::vec3(
-					//	-window->GetInput().MouseDeltaY(),
-					//	 window->GetInput().MouseDeltaX(),
-					//	0) * camMovement.mouseSensitivity / 1000.0f) * camTransform.rotation;
+					camTransform.rotation *= glm::quat(glm::vec3(
+						-window->GetInput().MouseDeltaY(),
+						 window->GetInput().MouseDeltaX(),
+						0) * camMovement.mouseSensitivity / 1000.0f);
 				}
 			});
 		}
