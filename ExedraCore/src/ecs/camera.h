@@ -28,7 +28,8 @@ namespace exedra {
 
 			glm::mat4 GetViewMatrix(const TransformComponent& _transform) const {
 				glm::vec3 lookDirection = glm::toMat4(_transform.rotation) * glm::vec4(0, 0, 1, 0);
-				return glm::lookAt(_transform.position, lookDirection + _transform.position, { 0, 1, 0 });
+				glm::vec3 upDirection =  glm::vec4{ 0, 1, 0, 0 };
+				return glm::lookAt(_transform.position, lookDirection + _transform.position, upDirection);
 			}
 
 			glm::mat4 GetProjectionMatrix() const {

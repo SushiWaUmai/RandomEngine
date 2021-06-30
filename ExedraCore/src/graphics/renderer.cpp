@@ -20,14 +20,7 @@ namespace exedra {
 			//glEnable(GL_BLEND);
 			//glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
-			//renderTexture.Init(1, 1);
-			//gui::RenderView* renderWindow = new gui::RenderView();
-			//renderWindow->Init(renderTexture);
-			//graphics::Window::current->GetImGui().AddWindow(renderWindow);
-
-			//LOG_CORE_TRACE("Render window created.");
 			LOG_CORE_TRACE("Renderer initialized successfully.");
-
 		}
 	}
 }

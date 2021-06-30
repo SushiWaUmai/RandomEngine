@@ -124,7 +124,7 @@ namespace exedra {
 			int _locID = glGetUniformLocation(programID, _location.c_str());
 
 			if (_locID < 0) {
-				LOG_CORE_ERROR("[Shader Error] Uniform {0} not found.", _location);
+				LOG_CORE_ERROR("Shader Uniform {0} not found.", _location);
 			}
 
 			return _locID;

@@ -8,6 +8,8 @@ namespace exedra {
 		struct CameraMovementComponent {
 			float mouseSensitivity = 1;
 			float moveSpeed = 5;
+
+			glm::vec2 mouseInput;
 		};
 
 		class CameraMovementSystem : public ComponentSystem {
