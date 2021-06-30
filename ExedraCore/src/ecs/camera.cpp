@@ -21,7 +21,7 @@ namespace exedra {
 					// Drawer Shader
 					drawer.shader.UseShader();
 					drawer.shader.SetUniformVector("objectColor", { 1, 1, 0 });
-					drawer.shader.SetUniformVector("lightDirection", { 0.75f, -1, 0.5f });
+					drawer.shader.SetUniformVector("lightDirection", { 0.75f, 1, 0.5f });
 					drawer.shader.SetUniformMatrix("ViewProjectionMatrix", cam.GetViewProjectionMatrix(camTransform));
 					drawer.shader.SetUniformMatrix("ModelMatrix", transform.GetTransformMatrix());
 
