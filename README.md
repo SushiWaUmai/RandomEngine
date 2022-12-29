@@ -2,6 +2,8 @@
 
 Just a random OpenGL Engine
 
+## This project is broken
+
 ---
 
 ## Getting Started
